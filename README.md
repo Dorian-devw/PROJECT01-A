@@ -2,11 +2,16 @@
 
 ## 📋 Descripción del Proyecto
 
-**EligePeru** es una aplicación móvil Android que permite a los ciudadanos peruanos consultar información pública y verificable sobre candidatos al Congreso y la Presidencia del Perú. La aplicación busca promover la transparencia electoral y facilitar el acceso a datos importantes como denuncias, proyectos legislativos, historial político y enlaces a fuentes oficiales.
+**DecidePeru** es una aplicación móvil Android que permite a los ciudadanos peruanos consultar información pública y verificable sobre candidatos al Congreso y la Presidencia del Perú. La aplicación busca promover la transparencia electoral y facilitar el acceso a datos importantes como denuncias, proyectos legislativos, historial político y enlaces a fuentes oficiales.
 
 ### 🎯 Problema que Resuelve
 
-En el Perú, la información sobre candidatos políticos está dispersa en múltiples fuentes oficiales (JNE, ONPE, Congreso, Poder Judicial), lo que dificulta que los ciudadanos puedan tomar decisiones informadas al momento de votar. **CandidatoInfo** centraliza esta información en una interfaz simple y accesible.
+En el Perú, el acceso a información confiable y verificable sobre los candidatos políticos es limitado y fragmentado. Los datos relevantes como antecedentes judiciales, historial político o desempeño legislativo se encuentran dispersos entre múltiples plataformas oficiales (JNE, ONPE, Congreso, Poder Judicial), lo que dificulta su consulta por parte del ciudadano común.
+
+A esto se suma un problema aún más crítico: la distorsión de la información a través de medios de comunicación, redes sociales y opiniones personales, que muchas veces presentan contenido sesgado, incompleto o incluso falso.
+Esta sobreexposición a fuentes no verificadas genera confusión, desinformación y desconfianza en los procesos electorales, afectando la capacidad de los votantes para tomar decisiones objetivas y fundamentadas.
+
+DecidePeru surge como una respuesta a esta necesidad, ofreciendo una plataforma centralizada y transparente donde los ciudadanos pueden consultar información pública, verificable y actualizada sobre los candidatos al Congreso y la Presidencia, fomentando así el voto informado y la participación responsable.
 
 ### 💡 Valor Social
 
