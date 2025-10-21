@@ -6,46 +6,61 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Colores patrios peruanos
-val PeruRed = Color(0xFFD32F2F)
-val PeruRedDark = Color(0xFFB71C1C)
+// Colores definidos arriba
+val PrimaryBlue = Color(0xFF0097D0)
+val SecondaryBlue = Color(0xFF137FDD)
+val DarkerBlue = Color(0xFF00679D)
+val LighterBlue = Color(0xFFC7E6F4)
 val PeruWhite = Color(0xFFFFFFFF)
 val LightGray = Color(0xFFF5F5F5)
-val MediumGray = Color(0xFFE0E0E0)
 val DarkGray = Color(0xFF424242)
 val TextPrimary = Color(0xFF212121)
 val TextSecondary = Color(0xFF757575)
 
 private val LightColorScheme = lightColorScheme(
-    primary = PeruRed,
-    onPrimary = PeruWhite,
-    primaryContainer = Color(0xFFFFCDD2),
-    onPrimaryContainer = PeruRedDark,
-    secondary = DarkGray,
+    // Colores Primarios (Azul)
+    primary = PrimaryBlue,          // Azul fuerte para botones principales, iconos, etc.
+    onPrimary = PeruWhite,          // Texto blanco sobre el azul primario
+    primaryContainer = LighterBlue, // Fondo celeste claro para tarjetas o chips de acento
+    onPrimaryContainer = DarkerBlue, // Texto oscuro sobre el container claro
+
+    // Colores Secundarios (Un acento o el DarkGray si lo prefieres)
+    secondary = SecondaryBlue,       // Azul similar para acentos visuales secundarios
     onSecondary = PeruWhite,
+
+    // Colores de Superficie y Fondo (Se mantienen)
     background = PeruWhite,
     onBackground = TextPrimary,
     surface = PeruWhite,
     onSurface = TextPrimary,
     surfaceVariant = LightGray,
     onSurfaceVariant = TextSecondary,
+
+    // Error se mantiene
     error = Color(0xFFB00020),
     onError = PeruWhite
 )
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PeruRed,
+    // Colores Primarios (Azul)
+    primary = PrimaryBlue,
     onPrimary = PeruWhite,
-    primaryContainer = PeruRedDark,
-    onPrimaryContainer = Color(0xFFFFCDD2),
-    secondary = Color(0xFF616161),
+    primaryContainer = DarkerBlue,   // Contenedor primario es un azul más oscuro
+    onPrimaryContainer = PeruWhite,
+
+    // Colores Secundarios (Acento)
+    secondary = SecondaryBlue,
     onSecondary = PeruWhite,
+
+    // Colores de Superficie y Fondo (Oscuros)
     background = Color(0xFF121212),
     onBackground = Color(0xFFE0E0E0),
     surface = Color(0xFF1E1E1E),
     onSurface = Color(0xFFE0E0E0),
     surfaceVariant = Color(0xFF2C2C2C),
     onSurfaceVariant = Color(0xFFBDBDBD),
+
+    // Error se mantiene
     error = Color(0xFFCF6679),
     onError = Color(0xFF000000)
 )
@@ -59,7 +74,7 @@ fun Project01ATheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = Typography, // Asegúrate de que Typography esté definido en Types.kt
         content = content
     )
 }

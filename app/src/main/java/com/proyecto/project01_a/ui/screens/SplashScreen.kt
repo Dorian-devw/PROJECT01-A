@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.proyecto.project01_a.ui.components.CustomButton
-import com.proyecto.project01_a.ui.theme.PeruRed
+import com.proyecto.project01_a.ui.theme.PeruWhite
 import com.proyecto.project01_a.ui.theme.PeruWhite
 import kotlinx.coroutines.delay
 
@@ -51,8 +51,8 @@ fun SplashScreen(
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
-                        PeruRed,
-                        PeruRed.copy(alpha = 0.85f)
+                        PeruWhite,
+                        PeruWhite.copy(alpha = 0.85f)
                     )
                 )
             ),

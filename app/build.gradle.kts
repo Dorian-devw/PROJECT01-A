@@ -53,7 +53,16 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("androidx.compose.material:material-icons-core:1.7.4")
     implementation("androidx.compose.material:material-icons-extended:1.7.4")
-
+    implementation("androidx.compose.foundation:foundation")
+    // Asegura la UI core (donde vive gran parte de la funcionalidad de Path/Graphics)
+    implementation("androidx.compose.ui:ui")
+// Si estás usando Compose BOM (Recomendado, debes tener un BOM en platform):
+    implementation(platform("androidx.compose:compose-bom:2024.04.00")) // o la versión más reciente
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.foundation:foundation") // <--- ESTA ES CRÍTICA PARA PAGER
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

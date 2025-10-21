@@ -11,6 +11,8 @@ import com.proyecto.project01_a.ui.screens.*
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object Home : Screen("home")
+    object CandidatosList : Screen("candidatos_list")
+    object PartidosList : Screen("partidos_list")
     object CandidatoDetail : Screen("candidato/{candidatoId}") {
         fun createRoute(candidatoId: String) = "candidato/$candidatoId"
     }
@@ -48,8 +50,20 @@ fun AppNavigation() {
 
         composable(Screen.Home.route) {
             HomeScreen(
-                onNavigateToCandidato = { candidatoId ->
+                onNavigateToCandidatoDetail = { candidatoId ->
                     navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
+                },
+                // 2. NUEVO: Navegación a la Lista General de Candidatos
+                onNavigateToCandidatosList = {
+                    // Necesitas definir la ruta para la lista general de candidatos.
+                    // ASUMIMOS que crearás una nueva ruta: Screen.CandidatosList
+                    navController.navigate(Screen.CandidatosList.route)
+                },
+                // 3. NUEVO: Navegación a Partidos Políticos
+                onNavigateToPartidos = {
+                    // Necesitas definir la ruta para la lista de partidos.
+                    // ASUMIMOS que crearás una nueva ruta: Screen.PartidosList
+                    navController.navigate(Screen.PartidosList.route)
                 },
                 onNavigateToCongreso = {
                     navController.navigate(Screen.CandidatoCongreso.route)
@@ -120,6 +134,20 @@ fun AppNavigation() {
                 onNavigateToDetail = { educacionId ->
                     navController.navigate(Screen.EducacionDetail.createRoute(educacionId))
                 }
+            )
+        }
+        composable(Screen.CandidatosList.route) {
+            CandidatosListScreen(
+                onNavigateToCandidatoDetail = { candidatoId ->
+                    navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
+                }
+                // Si tienes un TopBar, también necesitarás un onNavigateBack
+            )
+        }
+
+        composable(Screen.PartidosList.route) {
+            PartidosListScreen(
+                // onNavigateBack = { navController.popBackStack() } // si la creas
             )
         }
 
