@@ -5,11 +5,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface // <-- Importación necesaria
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color // <-- Importación necesaria
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -22,24 +24,46 @@ fun HighlightedCandidateCard(
     candidato: CandidatoDestacado,
     onClick: (String) -> Unit
 ) {
-    // Dimensiones óptimas para la imagen destacada (Ejemplo: 120x120)
     val imageSize = 120.dp
     val cornerRadius = 8.dp
 
     Column(
         modifier = Modifier
-            .width(imageSize + 10.dp) // Ancho un poco mayor que la imagen para el texto
+            .width(imageSize + 10.dp)
             .clickable { onClick(candidato.id) }
     ) {
-        // 1. IMAGEN CUADRADA CON BORDES
-        Image(
-            painter = painterResource(id = candidato.imagenResId),
-            contentDescription = "Foto de ${candidato.nombre}",
-            contentScale = ContentScale.Crop, // Para llenar el cuadrado sin distorsionar (acepta recorte)
+        // 1. IMAGEN y BADGE (Ahora usamos Box para superponer elementos)
+        Box(
             modifier = Modifier
-                .size(imageSize) // Tamaño Fijo CUADRADO
+                .size(imageSize)
                 .clip(RoundedCornerShape(cornerRadius))
-        )
+        ) {
+            // A. IMAGEN
+            Image(
+                painter = painterResource(id = candidato.imagenResId),
+                contentDescription = "Foto de ${candidato.nombre}",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.matchParentSize() // Ocupa todo el Box
+            )
+
+            // B. PORCENTAJE BADGE
+            Surface(
+                // Fondo oscuro semi-transparente para que el texto resalte
+                color = Color.Black.copy(alpha = 0.6f),
+                // Forma de etiqueta biselada en la esquina
+                shape = RoundedCornerShape(topStart = 8.dp, bottomEnd = 8.dp),
+                // Alineación en la esquina superior izquierda
+                modifier = Modifier.align(Alignment.TopStart)
+            ) {
+                Text(
+                    text = candidato.porcentaje,
+                    color = Color.White,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)
+                )
+            }
+        }
         Spacer(modifier = Modifier.height(6.dp))
 
         // 2. Nombre del Candidato (Negrita)

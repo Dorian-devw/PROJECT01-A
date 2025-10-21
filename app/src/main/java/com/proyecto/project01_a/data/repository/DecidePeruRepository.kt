@@ -321,22 +321,67 @@ object DecidePeruRepository {
             CandidatoDestacado(
                 id = "rafael_lopez",
                 nombre = "Rafael Lopez Aliaga",
+                porcentaje = "10%",
                 partido = "Renovación Popular",
                 imagenResId = R.drawable.rafaelopez // Asegúrate de tener esta imagen
             ),
             CandidatoDestacado(
                 id = "keiko_fujimori",
                 nombre = "Keiko Fujimori",
+                porcentaje = "7%",
                 partido = "Fuerza Popular",
                 imagenResId = R.drawable.keikofujimori // Asegúrate de tener esta imagen
             ),
             CandidatoDestacado(
                 id = "mario_vizcarra",
                 nombre = "Mario Vizcarra",
-                partido = "País para Todos",
+                porcentaje = "7%",
+                partido = "Perú Primero",
                 imagenResId = R.drawable.mariovizcarra // Asegúrate de tener esta imagen
             ),
-            // ... Puedes agregar más para forzar el scroll
+            CandidatoDestacado(
+                id = "carlos_alvarez",
+                nombre = "Carlos Álvarez",
+                porcentaje = "4%",
+                partido = "País para Todos",
+                imagenResId = R.drawable.carloalvarez // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "phillip_butters",
+                nombre = "Phillip Butters",
+                porcentaje = "3%",
+                partido = "Avanza País",
+                imagenResId = R.drawable.phillipbutters // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "cesar_acuña",
+                nombre = "César Acuña",
+                porcentaje = "2%",
+                partido = "Alianza para el Progreso",
+                imagenResId = R.drawable.cesaracuna // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "yonhy_lescano",
+                nombre = "Yonhy Lescano",
+                porcentaje = "2%",
+                partido = "Cooperación Popular",
+                imagenResId = R.drawable.yohnylescano // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "rafael_belaunde",
+                nombre = "Rafael Belaunde",
+                porcentaje = "2%",
+                partido = "Libertad Popular",
+                imagenResId = R.drawable.rafaelbelaunde // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "guillermo_bermejo",
+                nombre = "Guillermo Bermejo",
+                porcentaje = "2%",
+                partido = " Alianza Electoral",
+                imagenResId = R.drawable.guillermobermejo // Asegúrate de tener esta imagen
+            ),
+
         )
     }
 
@@ -369,6 +414,10 @@ object DecidePeruRepository {
     // Puedes añadir una función para obtener el Candidato (general) por ID si es necesario
     fun getCandidatoDetail(id: String): Candidato? {
         return getCandidatosPresidenciales().find { it.id == id }
+    }
+    fun getEncuestaFuenteUrl(): String {
+        // URL simulada que se abrirá en el navegador
+        return "https://www.ipsos.com/es-pe/intencion-de-voto-septiembre-2025-ii-encuesta-america-tv-ipsos"
     }
 
 }

@@ -31,7 +31,9 @@ import com.proyecto.project01_a.ui.theme.Project01ATheme
 import kotlinx.coroutines.delay
 import com.proyecto.project01_a.ui.components.QuickAccessSection
 import com.proyecto.project01_a.ui.components.FeaturedSection
-
+import androidx.compose.ui.platform.LocalContext // <-- ¡IMPORTANTE!
+import android.content.Intent // <-- ¡IMPORTANTE!
+import android.net.Uri // <-- ¡IMPORTANTE!
 import kotlinx.coroutines.launch
 // Colores personalizados según el requerimiento
 val DecidePeruDarkBlue = Color(0xFF0097D0)
@@ -47,9 +49,38 @@ fun HomeScreen(
     onNavigateToNoticias: () -> Unit,
     onNavigateToEducacion: () -> Unit
 ) {
+    val context = LocalContext.current
+    // FUNCIÓN PARA ABRIR LA URL EN EL NAVEGADOR
+    val openUrl: (String) -> Unit = { url ->
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        // Flag para asegurar que se lance como una nueva actividad si es necesario
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        context.startActivity(intent)
+    }
+
+    // Definición del TopAppBar Fijo
+    val fixedTopBar = @Composable {
+        CenterAlignedTopAppBar(
+            title = {
+                Text(
+                    text = "Decide Perú",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                    // Usamos style = MaterialTheme.typography.headlineMedium aquí si quieres que coincida con el original
+                )
+            },
+            // Usamos los colores originales del header para que coincida
+            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                containerColor = DecidePeruDarkBlue,
+                titleContentColor = Color.White
+            ),
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
 
     // El Scaffold ya no tiene un TopAppBar, el "header" es parte del contenido
     Scaffold(
+        topBar = fixedTopBar,
         content = { paddingValues ->
             LazyColumn(
                 modifier = Modifier
@@ -72,14 +103,16 @@ fun HomeScreen(
                     )
                 }
                 // --- FIN NUEVA SECCIÓN ---
-                // >>> INICIO DE LA SECCIÓN DESTACADAS <<<
+                // >>> INICIO DE LA SECCIÓN DESTACADAS (CORRECCIÓN APLICADA AQUÍ) <<<
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
                     FeaturedSection(
-                        onCandidateClick = onNavigateToCandidatoDetail // Reusa el callback de detalle
+                        onCandidateClick = onNavigateToCandidatoDetail, // Navega al perfil del candidato
+                        onViewFullSourceClick = openUrl // <-- NUEVO: Pasa la función para abrir el navegador
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+                // >>> FIN DE LA SECCIÓN DESTACADAS <<<
                 // >>> FIN DE LA SECCIÓN DESTACADAS <<<
 
                 /*item {
@@ -198,17 +231,6 @@ fun HeaderContent() {
             .background(DecidePeruDarkBlue) // Color #0097D0
             .background(DecidePeruDarkBlue) // Color #0097D0
     ) {
-        // 1. Título "Decide Peru" (centrado)
-        Text(
-            text = "Decide Perú",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp, bottom = 12.dp),
-            textAlign = TextAlign.Center,
-            color = Color.White,
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold
-        )
 
         // 2. Barra de Búsqueda
         OutlinedTextField(
@@ -343,6 +365,7 @@ fun SlideContent(currentSlide: Int) {
         )
     }
 }
+
 
 
 @Preview(showBackground = true, name = "Home Screen Preview")

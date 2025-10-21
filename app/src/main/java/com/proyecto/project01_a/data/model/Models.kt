@@ -101,5 +101,6 @@ data class CandidatoDestacado(
     val id: String,
     val nombre: String,
     val partido: String,
-    val imagenResId: Int // Referencia al recurso (R.drawable.xxx)
+    val imagenResId: Int,
+    val porcentaje: String
 )
