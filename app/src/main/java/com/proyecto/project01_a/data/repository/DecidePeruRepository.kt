@@ -323,100 +323,87 @@ object DecidePeruRepository {
                 nombre = "Rafael Lopez Aliaga",
                 porcentaje = "10%",
                 partido = "Renovación Popular",
-                imagenResId = R.drawable.rafaelopez // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.rafaelopez
             ),
             CandidatoDestacado(
                 id = "keiko_fujimori",
                 nombre = "Keiko Fujimori",
                 porcentaje = "7%",
                 partido = "Fuerza Popular",
-                imagenResId = R.drawable.keikofujimori // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.keikofujimori
             ),
             CandidatoDestacado(
                 id = "mario_vizcarra",
                 nombre = "Mario Vizcarra",
                 porcentaje = "7%",
                 partido = "Perú Primero",
-                imagenResId = R.drawable.mariovizcarra // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.mariovizcarra
             ),
             CandidatoDestacado(
                 id = "carlos_alvarez",
                 nombre = "Carlos Álvarez",
                 porcentaje = "4%",
                 partido = "País para Todos",
-                imagenResId = R.drawable.carloalvarez // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.carloalvarez
             ),
             CandidatoDestacado(
                 id = "phillip_butters",
                 nombre = "Phillip Butters",
                 porcentaje = "3%",
                 partido = "Avanza País",
-                imagenResId = R.drawable.phillipbutters // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.phillipbutters
             ),
             CandidatoDestacado(
                 id = "cesar_acuña",
                 nombre = "César Acuña",
                 porcentaje = "2%",
                 partido = "Alianza para el Progreso",
-                imagenResId = R.drawable.cesaracuna // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.cesaracuna
             ),
             CandidatoDestacado(
                 id = "yonhy_lescano",
                 nombre = "Yonhy Lescano",
                 porcentaje = "2%",
                 partido = "Cooperación Popular",
-                imagenResId = R.drawable.yohnylescano // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.yohnylescano
             ),
             CandidatoDestacado(
                 id = "rafael_belaunde",
                 nombre = "Rafael Belaunde",
                 porcentaje = "2%",
                 partido = "Libertad Popular",
-                imagenResId = R.drawable.rafaelbelaunde // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.rafaelbelaunde
             ),
             CandidatoDestacado(
                 id = "guillermo_bermejo",
                 nombre = "Guillermo Bermejo",
                 porcentaje = "2%",
                 partido = " Alianza Electoral",
-                imagenResId = R.drawable.guillermobermejo // Asegúrate de tener esta imagen
+                imagenResId = R.drawable.guillermobermejo
             ),
 
         )
     }
 
-
-    // --- Implementación de Funciones de Detalle (Por ID) ---
-
-    /** Obtiene el detalle de un Candidato Presidencial por su ID. */
     fun getCandidatoById(id: String): Candidato? {
         return getCandidatosPresidenciales().find { it.id == id }
     }
 
-    /** Obtiene el detalle de un Partido Político por su ID (usado en PartidoDetailScreen). */
     fun getPartidoById(id: String): Partido? {
         return getPartidos().find { it.id == id }
     }
 
-    /** Obtiene el detalle de un Candidato al Congreso por su ID. */
     fun getCandidatoCongresoById(id: String): CandidatoCongreso? {
         return getCandidatosCongreso().find { it.id == id }
     }
-
-    /**
-     * Obtiene el detalle de un Contenido Educativo por su ID
-     * (Función Requerida para EducacionDetailScreen).
-     */
     fun getContenidoEducativoDetail(id: String): ContenidoEducativo? {
         return getContenidoEducativo().find { it.id == id }
     }
 
-    // Puedes añadir una función para obtener el Candidato (general) por ID si es necesario
     fun getCandidatoDetail(id: String): Candidato? {
         return getCandidatosPresidenciales().find { it.id == id }
     }
     fun getEncuestaFuenteUrl(): String {
-        // URL simulada que se abrirá en el navegador
         return "https://www.ipsos.com/es-pe/intencion-de-voto-septiembre-2025-ii-encuesta-america-tv-ipsos"
     }
 
