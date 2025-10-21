@@ -30,8 +30,7 @@ import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.theme.Project01ATheme
 import kotlinx.coroutines.delay
 import com.proyecto.project01_a.ui.components.QuickAccessSection
-
-
+import com.proyecto.project01_a.ui.components.FeaturedSection
 
 import kotlinx.coroutines.launch
 // Colores personalizados según el requerimiento
@@ -73,6 +72,15 @@ fun HomeScreen(
                     )
                 }
                 // --- FIN NUEVA SECCIÓN ---
+                // >>> INICIO DE LA SECCIÓN DESTACADAS <<<
+                item {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    FeaturedSection(
+                        onCandidateClick = onNavigateToCandidatoDetail // Reusa el callback de detalle
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
+                // >>> FIN DE LA SECCIÓN DESTACADAS <<<
 
                 /*item {
                     Spacer(modifier = Modifier.height(16.dp))

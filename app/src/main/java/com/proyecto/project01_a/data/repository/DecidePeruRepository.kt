@@ -1,7 +1,7 @@
 package com.proyecto.project01_a.data.repository
 
 import com.proyecto.project01_a.data.model.*
-
+import com.proyecto.project01_a.R
 object DecidePeruRepository {
 
     fun getCandidatosPresidenciales(): List<Candidato> {
@@ -315,6 +315,32 @@ object DecidePeruRepository {
             )
         )
     }
+
+    fun getCandidatosDestacados(): List<CandidatoDestacado> {
+        return listOf(
+            CandidatoDestacado(
+                id = "rafael_lopez",
+                nombre = "Rafael Lopez Aliaga",
+                partido = "Renovación Popular",
+                imagenResId = R.drawable.rafaelopez // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "keiko_fujimori",
+                nombre = "Keiko Fujimori",
+                partido = "Fuerza Popular",
+                imagenResId = R.drawable.keikofujimori // Asegúrate de tener esta imagen
+            ),
+            CandidatoDestacado(
+                id = "mario_vizcarra",
+                nombre = "Mario Vizcarra",
+                partido = "País para Todos",
+                imagenResId = R.drawable.mariovizcarra // Asegúrate de tener esta imagen
+            ),
+            // ... Puedes agregar más para forzar el scroll
+        )
+    }
+
+
     // --- Implementación de Funciones de Detalle (Por ID) ---
 
     /** Obtiene el detalle de un Candidato Presidencial por su ID. */
@@ -344,5 +370,6 @@ object DecidePeruRepository {
     fun getCandidatoDetail(id: String): Candidato? {
         return getCandidatosPresidenciales().find { it.id == id }
     }
+
 }
 

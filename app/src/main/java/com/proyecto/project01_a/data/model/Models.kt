@@ -96,3 +96,10 @@ data class CandidatoCongreso(
     val propuestas: List<String>,
     val historial: String
 )
+
+data class CandidatoDestacado(
+    val id: String,
+    val nombre: String,
+    val partido: String,
+    val imagenResId: Int // Referencia al recurso (R.drawable.xxx)
+)
