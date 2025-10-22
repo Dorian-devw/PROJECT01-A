@@ -94,7 +94,7 @@ object DecidePeruRepository {
                 partido = "Fuerza Popular",
                 cargoPostula = "Presidente de la República",
                 fotoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSircVrljTiJB9rWml00GXmMeBk6-jNbXjIJg&s",
-                edad = 50, // Nacida en 1975
+                edad = 50,
                 profesion = "Administradora",
                 biografia = "Administradora y política peruana. Es líder del partido Fuerza Popular y ha sido tres veces candidata presidencial llegando a la segunda vuelta en todas las ocasiones. Es la hija mayor del expresidente Alberto Fujimori, y fue Primera Dama del Perú de 1994 a 2000.",
 
@@ -130,8 +130,8 @@ object DecidePeruRepository {
                         tipo = "Caso Cócteles (Lavado de activos)",
                         descripcion = "Acusada de liderar una organización criminal y lavado de activos por aportes irregulares a sus campañas de 2011 y 2016. El juicio fue anulado por el Tribunal Constitucional en octubre de 2025.",
                         año = 2024,
-                        estado = "Archivado", // Reflejando la anulación simulada
-                        fuenteUrl = "https://es.wikipedia.org/wiki/Caso_C%C3%B3cteles"
+                        estado = "Archivado",
+                        fuenteUrl = "https://es.wikipedia.org/wiki/Juicio_a_Keiko_Fujimori"
                     )
                 ),
 
@@ -166,7 +166,6 @@ object DecidePeruRepository {
                     transparencia = "Baja"
                 ),
 
-                // Redes Sociales de Keiko Fujimori y Fuerza Popular
                 redesSociales = RedesSociales(
                     facebook = "https://www.facebook.com/KeikoFujimoriH/",
                     twitter = "https://twitter.com/KeikoFujimori",
@@ -176,37 +175,123 @@ object DecidePeruRepository {
             ),
             Candidato(
                 id = "3",
-                nombre = "Daniel Urresti",
-                partido = "Podemos Perú",
+                nombre = "Mario Vizcarra Cornejo",
+                partido = "Perú Primero",
                 cargoPostula = "Presidente de la República",
-                fotoUrl = "https://via.placeholder.com/200",
-                edad = 62,
-                profesion = "Militar retirado y Político",
-                biografia = "General del Ejército del Perú en retiro, ex ministro del Interior. Conocido por su postura firme en temas de seguridad.",
+                fotoUrl = "https://f.rpp-noticias.io/2025/08/25/500450_1784627.jpg?imgdimension=n_medium",
+                edad = 65,
+                profesion = "Empresario / Ingeniero Industrial",
+                biografia = "Empresario peruano, hermano del expresidente Martín Vizcarra. Es integrante del partido Perú Primero y ha sido un colaborador clave en las campañas políticas de su hermano. Su candidatura a la presidencia en 2026 es especulativa. Actualmente enfrenta una investigación fiscal por presuntos delitos de colusión y peculado.",
                 propuestas = listOf(
-                    Propuesta("Seguridad", "Guerra frontal contra el crimen", "Despliegue de fuerzas militares en zonas de alta criminalidad.", "Alta"),
-                    Propuesta("Justicia", "Reforma del sistema judicial", "Eliminar la corrupción en el Poder Judicial.", "Alta"),
-                    Propuesta("Empleo", "Generación de empleo formal", "Incentivar la creación de empleos en zonas rurales.", "Media")
+                    Propuesta("Generales", "Pendiente de Publicación", "Aún no se han oficializado las propuestas detalladas de la candidatura.", "Baja")
                 ),
                 denuncias = listOf(
-                    Denuncia("Homicidio", "Proceso por caso Hugo Bustíos", 2022, "Absuelto", "https://fuente.com")
+                    Denuncia(
+                        tipo = "Colusión y Peculado",
+                        descripcion = "Investigación fiscal por presuntos delitos vinculados a contratos estatales de la empresa familiar C y M Vizcarra S.A.C.",
+                        año = 2024,
+                        estado = "En proceso",
+                        fuenteUrl = "https://investigacion.fuente.com"
+                    )
                 ),
-                historial = listOf(
-                    CargoAnterior("Ministro del Interior", "Gobierno del Perú", "2014-2015", "Gestión enfocada en combate al terrorismo y narcotráfico."),
-                    CargoAnterior("Congresista", "Congreso de la República", "2020-2021", "Labor legislativa en comisiones de defensa.")
-                ),
+
+                historial = listOf(),
                 financiamiento = Financiamiento(
-                    montoDeclared = "S/ 10,000,000",
-                    fuentesPrincipales = listOf("Aportes personales", "Donaciones privadas"),
-                    transparencia = "Media"
+                    montoDeclared = "S/ 0 (Pendiente de declarar)",
+                    fuentesPrincipales = listOf("No declaradas"),
+                    transparencia = "Baja"
+                ),
+
+                redesSociales = RedesSociales(
+                    facebook = "https://facebook.com/mariovizcarra",
+                    twitter = "https://twitter.com/mariovizcarra",
+                    instagram = "https://instagram.com/mariovizcarra",
+                    webOficial = "https://peruprimero.com"
+                )
+            ),
+            Candidato(
+                id = "4",
+                nombre = "Carlos Alvarez Loayza",
+                partido = "País para Todos",
+                cargoPostula = "Presidente de la República",
+                fotoUrl = "https://storage.googleapis.com/repositorio-willax-prd/web-willax-assets/migrated/2018/07/alvarez.png",
+                edad = 61,
+                profesion = "Comediante - Guionista",
+
+                biografia = "Carlos Álvarez (Lima, 7 de enero de 1964) es un comediante y presentador peruano conocido por sus imitaciones políticas. En 2024 se unió al partido País para Todos y en 2025 anunció su interés en postular a la presidencia en las elecciones de 2026.",
+
+                propuestas = listOf(
+                    Propuesta(
+                        categoria = "Seguridad Ciudadana",
+                        titulo = "Implementar la pena de muerte para sicarios y criminales violentos",
+                        descripcion = "Propone aplicar la pena de muerte como medida extrema contra la delincuencia y el sicariato, argumentando que el Estado debe proteger a los ciudadanos de criminales irrecuperables.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Relaciones Internacionales",
+                        titulo = "Retirar al Perú del Pacto de San José",
+                        descripcion = "Busca que el Perú se retire de la Convención Americana sobre Derechos Humanos para poder aplicar sanciones más severas como la pena de muerte sin restricciones internacionales.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Justicia y Anticorrupción",
+                        titulo = "Cadena perpetua para delitos graves de corrupción",
+                        descripcion = "Plantea cadena perpetua para funcionarios o autoridades cuya corrupción haya causado muertes, como en la pandemia del COVID-19.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Salud Pública",
+                        titulo = "Comisión de la Verdad sobre la pandemia del COVID-19",
+                        descripcion = "Propone crear una comisión que investigue irregularidades y responsabilidades en la gestión estatal de la pandemia.",
+                        prioridad = "Media"
+                    ),
+                    Propuesta(
+                        categoria = "Reforma Judicial",
+                        titulo = "Reforma profunda del sistema judicial",
+                        descripcion = "Pretende una reforma estructural del Poder Judicial con participación de constitucionalistas, académicos y exmagistrados del Tribunal Constitucional.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Gobernabilidad",
+                        titulo = "Revisión del artículo 117 de la Constitución",
+                        descripcion = "Busca modificar el artículo que impide investigar a presidentes en funciones por corrupción, promoviendo una mayor rendición de cuentas.",
+                        prioridad = "Media"
+                    ),
+                    Propuesta(
+                        categoria = "Política General",
+                        titulo = "Gobierno pragmático sin ideología",
+                        descripcion = "Afirma no ser de izquierda, derecha ni centro, sino pragmático; plantea un gobierno basado en sentido común y resultados concretos.",
+                        prioridad = "Media"
+                    ),
+                    Propuesta(
+                        categoria = "Política Social",
+                        titulo = "Mejora de servicios básicos y reducción de la anemia",
+                        descripcion = "Promueve hospitales con medicinas, educación de calidad y políticas efectivas para reducir la anemia infantil.",
+                        prioridad = "Media"
+                    ),
+                    Propuesta(
+                        categoria = "Seguridad Ciudadana",
+                        titulo = "Modelo de seguridad inspirado en El Salvador",
+                        descripcion = "Propone un sistema de seguridad similar al modelo salvadoreño, con firmeza frente al crimen, pero respetando los derechos humanos.",
+                        prioridad = "Alta"
+                    )
+                ),
+
+                denuncias = listOf(),
+                historial = listOf(),
+                financiamiento = Financiamiento(
+                    montoDeclared = "S/ 0 (Pendiente de declarar)",
+                    fuentesPrincipales = listOf("No declaradas"),
+                    transparencia = "Baja"
                 ),
                 redesSociales = RedesSociales(
-                    facebook = "https://facebook.com/danielurresti",
-                    twitter = "https://twitter.com/danielurresti",
-                    instagram = "https://instagram.com/danielurresti",
-                    webOficial = "https://podemosperu.pe"
+                    facebook = "https://facebook.com/carlosalvarez",
+                    twitter = "https://twitter.com/carlosalvarez",
+                    instagram = "https://instagram.com/carlosalvarez",
+                    webOficial = "https://paisparatodos"
                 )
-            )
+            ),
+
         )
     }
 
