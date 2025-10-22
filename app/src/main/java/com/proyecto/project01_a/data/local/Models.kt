@@ -1,4 +1,4 @@
-package com.proyecto.project01_a.data.model
+package com.proyecto.project01_a.data.local
 
 data class Candidato(
     val id: String,
