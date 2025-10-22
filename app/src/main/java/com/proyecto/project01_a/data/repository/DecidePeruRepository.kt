@@ -11,20 +11,70 @@ object DecidePeruRepository {
                 nombre = "Rafael López Aliaga",
                 partido = "Renovación Popular",
                 cargoPostula = "Presidente de la República",
-                fotoUrl = "https://via.placeholder.com/200",
-                edad = 60,
-                profesion = "Empresario",
-                biografia = "Empresario peruano, ex alcalde de Lima y fundador de Renovación Popular. Ha sido vocal en temas de libre mercado y conservadurismo social.",
+                fotoUrl = "https://pbs.twimg.com/profile_images/1372582295987757058/P2yzmjJP_400x400.jpg",
+                edad = 64,
+                profesion = "Político, Empresario e Ingeniero Industrial",
+                biografia = "Rafael Bernardo López-Aliaga Cazorla (Lima, 11 de febrero de 1961) es un empresario y político peruano. Es miembro del partido Renovación Popular. Fue alcalde metropolitano de Lima desde el 1 de enero de 2023 hasta su renuncia el 13 de octubre de 2025. Fue fundador y accionista de Peruval Corp SA además de ser accionista de Ferrocarril Transandino S. A. Es presidente del directorio de Peru Holding de Turismo (PTHSAA) desde 1991.",
+
                 propuestas = listOf(
-                    Propuesta("Economía", "Reducción de impuestos", "Propone reducir la carga tributaria para empresas y personas naturales.", "Alta"),
-                    Propuesta("Seguridad", "Mano dura contra el crimen", "Implementación de políticas de seguridad más estrictas.", "Alta"),
-                    Propuesta("Educación", "Reforma educativa", "Mejorar la calidad educativa con énfasis en valores.", "Media")
+                    Propuesta("Seguridad", "Traslado de Delincuentes a Cecot", "Los delincuentes de alta peligrosidad deben ser enviados a las cárceles Cecot de El Salvador.", "Alta"),
+                    Propuesta("Justicia", "Reforma Judicial y Fiscal", "Reforma total de Poder Judicial y Fiscalía.", "Alta"),
+                    Propuesta("Seguridad", "Control Militar del Orden Interno", "El orden interno debe estar bajo el control del Ejército del Perú.", "Alta"),
+                    Propuesta("Seguridad", "Delito de Terrorismo Urbano", "Aprobación urgente del delito de Terrorismo urbano, con delegación para legislar.", "Alta"),
+                    Propuesta("Seguridad", "Potenciar Inteligencia Policial", "Equipamiento para potenciar la inteligencia policial y militar (cámaras, drones, interceptación de información y central de recompensas efectivo).", "Media"),
+                    Propuesta("Seguridad", "Grilletes Electrónicos", "Implementación de grilletes electrónicos para extranjeros no registrados y delitos menores, con el fin de saber las actividades que realizan.", "Media"),
+                    Propuesta("Tecnología", "Sanción a Empresas de Telefonía", "Sanción a gerentes o directores de empresas de telefonía de celulares que no den de baja equipos robados y reportados.", "Media"),
+                    Propuesta("Defensa", "Servicio Militar Voluntario con Incentivos", "Servicio militar voluntario con incentivos como beca 18, carrera militar y trabajo con la ingeniería del Ejército.", "Media"),
+                    Propuesta("Administración", "Liberación de Efectivos Policiales", "Liberar efectivos policiales de labores administrativas o de vigilancia de fronteras o activos críticos.", "Baja")
                 ),
+
                 denuncias = listOf(
-                    Denuncia("Corrupción", "Investigación por presunto conflicto de intereses", 2023, "En proceso", "https://fuente.com")
+                    Denuncia(
+                        tipo = "Lavado de activos",
+                        descripcion = "Investigación por presunto lavado de activos relacionados con corrupción de funcionarios, a través de empresas del grupo ACRES, por aproximadamente S/ 1 millón.",
+                        año = 2022,
+                        estado = "En proceso",
+                        fuenteUrl = "https://www.pj.gob.pe/wps/wcm/connect/62f8a3004137128aaf6cbf1666a80600/9-9+CASO+LOPEZ+ALIAGA.pdf?MOD=AJPERES&CACHEID=62f8a3004137128aaf6cbf1666a80600"
+                    )
                 ),
+
                 historial = listOf(
-                    CargoAnterior("Alcalde de Lima", "Municipalidad Metropolitana de Lima", "2019-2022", "Gestión enfocada en obras públicas y seguridad ciudadana.")
+                    CargoAnterior(
+                        cargo = "Alcalde de Lima Metropolitana",
+                        institucion = "Municipalidad Metropolitana de Lima",
+                        periodo = "2023-2025",
+                        descripcion = "Electo alcalde de Lima en 2022 por Renovación Popular. Su gestión se centró en convenios con el Ejército para obras públicas y en medidas de seguridad. En 2025 anunció su intención de postular nuevamente a la presidencia."
+                    ),
+                    CargoAnterior(
+                        cargo = "Fundador y Presidente de Renovación Popular",
+                        institucion = "Partido Renovación Popular",
+                        periodo = "2020-presente",
+                        descripcion = "Refundó Solidaridad Nacional bajo el nombre Renovación Popular, con una línea política conservadora y de derecha cristiana. Promovió principios de libre mercado y valores religiosos."
+                    ),
+                    CargoAnterior(
+                        cargo = "Candidato a la Presidencia de la República",
+                        institucion = "Renovación Popular",
+                        periodo = "Elecciones 2021",
+                        descripcion = "Postuló a la presidencia con un discurso conservador y religioso. Obtuvo el 11.75% de los votos válidos, quedando en tercer lugar. Posteriormente apoyó a Keiko Fujimori en segunda vuelta."
+                    ),
+                    CargoAnterior(
+                        cargo = "Presidente del partido Solidaridad Nacional",
+                        institucion = "Partido Solidaridad Nacional",
+                        periodo = "2019-2020",
+                        descripcion = "Asumió la dirección del partido tras la etapa de Luis Castañeda Lossio. En esta etapa buscó reposicionar la agrupación en la política nacional."
+                    ),
+                    CargoAnterior(
+                        cargo = "Candidato al Congreso de la República",
+                        institucion = "Alianza Solidaridad Nacional",
+                        periodo = "2011",
+                        descripcion = "Postuló sin éxito al Congreso, obteniendo 11,877 votos. No logró una curul."
+                    ),
+                    CargoAnterior(
+                        cargo = "Regidor Metropolitano de Lima",
+                        institucion = "Municipalidad Metropolitana de Lima",
+                        periodo = "2007-2010",
+                        descripcion = "Ingresó a la política como regidor de Lima por Unidad Nacional (Solidaridad Nacional fue parte de esta alianza). Respaldó la concesión de la Línea Amarilla a la empresa OAS, luego investigada por corrupción."
+                    )
                 ),
                 financiamiento = Financiamiento(
                     montoDeclared = "S/ 15,000,000",
@@ -40,32 +90,88 @@ object DecidePeruRepository {
             ),
             Candidato(
                 id = "2",
-                nombre = "Verónika Mendoza",
-                partido = "Nuevo Perú",
+                nombre = "Keiko Fujimori Higuchi",
+                partido = "Fuerza Popular",
                 cargoPostula = "Presidente de la República",
-                fotoUrl = "https://via.placeholder.com/200",
-                edad = 43,
-                profesion = "Psicóloga y Política",
-                biografia = "Psicóloga cusqueña, líder de la izquierda peruana y fundadora del movimiento Nuevo Perú. Ha participado en múltiples elecciones presidenciales.",
+                fotoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSircVrljTiJB9rWml00GXmMeBk6-jNbXjIJg&s",
+                edad = 50, // Nacida en 1975
+                profesion = "Administradora",
+                biografia = "Administradora y política peruana. Es líder del partido Fuerza Popular y ha sido tres veces candidata presidencial llegando a la segunda vuelta en todas las ocasiones. Es la hija mayor del expresidente Alberto Fujimori, y fue Primera Dama del Perú de 1994 a 2000.",
+
                 propuestas = listOf(
-                    Propuesta("Social", "Reforma de salud universal", "Implementar un sistema de salud gratuito y de calidad para todos.", "Alta"),
-                    Propuesta("Ambiente", "Protección de la Amazonía", "Frenar la deforestación y minería ilegal.", "Alta"),
-                    Propuesta("Economía", "Justicia tributaria", "Los que más tienen deben pagar más impuestos.", "Media")
+                    Propuesta(
+                        categoria = "Seguridad Ciudadana",
+                        titulo = "Fortalecimiento de Comisarías y Distrito Seguro",
+                        descripcion = "Mejorar comisarías con personal calificado, patrullaje inteligente, mapas del delito, equipamiento adecuado y trabajo coordinado con serenazgo. Se iniciará con programas piloto en distritos priorizados.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Sistema Penitenciario",
+                        titulo = "Construcción de Nuevos Penales y Reorganización del INPE",
+                        descripcion = "Reducir el hacinamiento carcelario con nuevos penales diferenciados por perfil del reo. Implementar libertad vigilada y grilletes electrónicos para delitos menores como medida de despenalización.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Justicia y Lucha contra la Corrupción",
+                        titulo = "Modernización y Digitalización del Sistema de Justicia",
+                        descripcion = "Implementar una plataforma digital integral para expedientes, audiencias y acceso en tiempo real a los procesos. Fortalecer la capacitación de jueces, fiscales y personal judicial.",
+                        prioridad = "Alta"
+                    ),
+                    Propuesta(
+                        categoria = "Transparencia y Control Público",
+                        titulo = "Fortalecimiento de la Contraloría y Declaraciones Juradas Únicas",
+                        descripcion = "Restituir el rol sancionador de la Contraloría General y crear un sistema único de declaraciones juradas de bienes, rentas e intereses para detectar conflictos de interés y sancionar la corrupción.",
+                        prioridad = "Alta"
+                    )
                 ),
-                denuncias = listOf(),
+
+                denuncias = listOf(
+                    Denuncia(
+                        tipo = "Caso Cócteles (Lavado de activos)",
+                        descripcion = "Acusada de liderar una organización criminal y lavado de activos por aportes irregulares a sus campañas de 2011 y 2016. El juicio fue anulado por el Tribunal Constitucional en octubre de 2025.",
+                        año = 2024,
+                        estado = "Archivado", // Reflejando la anulación simulada
+                        fuenteUrl = "https://es.wikipedia.org/wiki/Caso_C%C3%B3cteles"
+                    )
+                ),
+
                 historial = listOf(
-                    CargoAnterior("Congresista", "Congreso de la República", "2011-2016", "Participación activa en comisiones de derechos humanos y medio ambiente.")
+                    CargoAnterior(
+                        cargo = "Candidata Presidencial (3 veces)",
+                        institucion = "Fuerza Popular",
+                        periodo = "2011, 2016, 2021",
+                        descripcion = "Postuló a la presidencia en tres elecciones consecutivas, llegando a la segunda vuelta en todas las ocasiones."
+                    ),
+                    CargoAnterior(
+                        cargo = "Congresista de la República",
+                        institucion = "Congreso de la República",
+                        periodo = "2006-2011",
+                        descripcion = "Elegida congresista por Lima en las elecciones de 2006, fue la legisladora con mayor votación a nivel nacional."
+                    ),
+                    CargoAnterior(
+                        cargo = "Primera Dama del Perú",
+                        institucion = "Presidencia de la República",
+                        periodo = "1994-2000",
+                        descripcion = "Asumió el rol de Primera Dama tras la destitución de su madre, Susana Higuchi."
+                    )
                 ),
+
                 financiamiento = Financiamiento(
-                    montoDeclared = "S/ 8,500,000",
-                    fuentesPrincipales = listOf("Aportes de militantes", "Crowdfunding"),
-                    transparencia = "Alta"
+                    montoDeclared = "Aproximadamente 5 millones de dólares (No declarado)",
+                    fuentesPrincipales = listOf(
+                        "Odebrecht (1.2 millones USD)",
+                        "Credicorp (3.65 millones USD, Dionisio Romero Paoletti)",
+                        "Grupo Gloria (200 mil USD, Vito Rodríguez Rodríguez)"
+                    ),
+                    transparencia = "Baja"
                 ),
+
+                // Redes Sociales de Keiko Fujimori y Fuerza Popular
                 redesSociales = RedesSociales(
-                    facebook = "https://facebook.com/veronikmendozaf",
-                    twitter = "https://twitter.com/veronikamendoza",
-                    instagram = "https://instagram.com/veronikmendozaf",
-                    webOficial = "https://nuevoperu.pe"
+                    facebook = "https://www.facebook.com/KeikoFujimoriH/",
+                    twitter = "https://twitter.com/KeikoFujimori",
+                    instagram = "https://www.instagram.com/keikofujimori/",
+                    webOficial = "https://fuerzapopular.com.pe"
                 )
             ),
             Candidato(
@@ -323,63 +429,67 @@ object DecidePeruRepository {
                 nombre = "Rafael Lopez Aliaga",
                 porcentaje = "10%",
                 partido = "Renovación Popular",
-                imagenResId = R.drawable.rafaelopez
+                imagenUrl = "https://pbs.twimg.com/profile_images/1372582295987757058/P2yzmjJP_400x400.jpg"
             ),
             CandidatoDestacado(
                 id = "keiko_fujimori",
                 nombre = "Keiko Fujimori",
                 porcentaje = "7%",
                 partido = "Fuerza Popular",
-                imagenResId = R.drawable.keikofujimori
+                imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSircVrljTiJB9rWml00GXmMeBk6-jNbXjIJg&s"
+
             ),
             CandidatoDestacado(
                 id = "mario_vizcarra",
                 nombre = "Mario Vizcarra",
                 porcentaje = "7%",
                 partido = "Perú Primero",
-                imagenResId = R.drawable.mariovizcarra
+                imagenUrl = "https://f.rpp-noticias.io/2025/08/25/500450_1784627.jpg?imgdimension=n_medium"
+
             ),
             CandidatoDestacado(
                 id = "carlos_alvarez",
                 nombre = "Carlos Álvarez",
                 porcentaje = "4%",
                 partido = "País para Todos",
-                imagenResId = R.drawable.carloalvarez
+                imagenUrl = "https://storage.googleapis.com/repositorio-willax-prd/web-willax-assets/migrated/2018/07/alvarez.png"
             ),
             CandidatoDestacado(
                 id = "phillip_butters",
                 nombre = "Phillip Butters",
                 porcentaje = "3%",
                 partido = "Avanza País",
-                imagenResId = R.drawable.phillipbutters
+                imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTurIcqYrhwZh-E8rMm69RyQDY2J-a6Amm7PA&s"
             ),
             CandidatoDestacado(
                 id = "cesar_acuña",
                 nombre = "César Acuña",
                 porcentaje = "2%",
                 partido = "Alianza para el Progreso",
-                imagenResId = R.drawable.cesaracuna
+                imagenUrl = "https://res.cloudinary.com/dku8g6qh3/image/upload/t_thumb-avatar/v1701462402/XIVCONGRESO/AVATARS/kq5ovzzlwojv2lij3vea.jpg"
+
             ),
             CandidatoDestacado(
                 id = "yonhy_lescano",
                 nombre = "Yonhy Lescano",
                 porcentaje = "2%",
                 partido = "Cooperación Popular",
-                imagenResId = R.drawable.yohnylescano
+                imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqgvmq2wnbEC57TIkmmHPmdyb-B8owKBrwTQ&s"
             ),
             CandidatoDestacado(
                 id = "rafael_belaunde",
                 nombre = "Rafael Belaunde",
                 porcentaje = "2%",
                 partido = "Libertad Popular",
-                imagenResId = R.drawable.rafaelbelaunde
+                imagenUrl = "https://pbs.twimg.com/profile_images/1937341132356091904/TQhYRyWS_400x400.jpg"
+
             ),
             CandidatoDestacado(
                 id = "guillermo_bermejo",
                 nombre = "Guillermo Bermejo",
                 porcentaje = "2%",
                 partido = " Alianza Electoral",
-                imagenResId = R.drawable.guillermobermejo
+                imagenUrl = "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/GNGFLZW6INFTTLLK445BNQMGSE.jpg"
             ),
 
         )

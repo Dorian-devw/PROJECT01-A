@@ -101,6 +101,6 @@ data class CandidatoDestacado(
     val id: String,
     val nombre: String,
     val partido: String,
-    val imagenResId: Int,
+    val imagenUrl: String,
     val porcentaje: String
 )

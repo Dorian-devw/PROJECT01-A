@@ -18,6 +18,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.proyecto.project01_a.data.model.CandidatoDestacado
+import coil.compose.AsyncImage // <-- ¡IMPORTAR ESTO PARA USAR URLS!
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 
 @Composable
 fun HighlightedCandidateCard(
@@ -39,11 +43,12 @@ fun HighlightedCandidateCard(
                 .clip(RoundedCornerShape(cornerRadius))
         ) {
             // A. IMAGEN
-            Image(
-                painter = painterResource(id = candidato.imagenResId),
+            AsyncImage( // <-- CAMBIO CLAVE AQUÍ
+                // model acepta la String de la URL
+                model = candidato.imagenUrl,
                 contentDescription = "Foto de ${candidato.nombre}",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize() // Ocupa todo el Box
+                modifier = Modifier.matchParentSize()
             )
 
             // B. PORCENTAJE BADGE

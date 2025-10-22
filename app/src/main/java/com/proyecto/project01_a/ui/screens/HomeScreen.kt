@@ -304,7 +304,7 @@ fun SlideContent(currentSlide: Int) {
             painter = painterResource(
                 id = when (currentSlide) {
                     0 -> R.drawable.votaciones
-                    else -> R.drawable.votaciones
+                    else -> R.drawable.votoinformado
                 }
             ),
             contentDescription = null,
