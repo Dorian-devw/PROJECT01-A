@@ -226,7 +226,7 @@ fun CandidatoDetailScreen(
 }
 
 @Composable
-fun PropuestaCard(propuesta: com.proyecto.project01_a.data.model.Propuesta) {
+fun PropuestaCard(propuesta: com.proyecto.project01_a.data.local.Propuesta) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -300,7 +300,7 @@ fun PropuestaCard(propuesta: com.proyecto.project01_a.data.model.Propuesta) {
 }
 
 @Composable
-fun HistorialCard(cargo: com.proyecto.project01_a.data.model.CargoAnterior) {
+fun HistorialCard(cargo: com.proyecto.project01_a.data.local.CargoAnterior) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -370,7 +370,7 @@ fun HistorialCard(cargo: com.proyecto.project01_a.data.model.CargoAnterior) {
 }
 
 @Composable
-fun DenunciaCard(denuncia: com.proyecto.project01_a.data.model.Denuncia) {
+fun DenunciaCard(denuncia: com.proyecto.project01_a.data.local.Denuncia) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -447,7 +447,7 @@ fun DenunciaCard(denuncia: com.proyecto.project01_a.data.model.Denuncia) {
 }
 
 @Composable
-fun FinanciamientoCard(financiamiento: com.proyecto.project01_a.data.model.Financiamiento) {
+fun FinanciamientoCard(financiamiento: com.proyecto.project01_a.data.local.Financiamiento) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -549,7 +549,7 @@ fun FinanciamientoCard(financiamiento: com.proyecto.project01_a.data.model.Finan
 }
 
 @Composable
-fun RedesSocialesSection(redes: com.proyecto.project01_a.data.model.RedesSociales) {
+fun RedesSocialesSection(redes: com.proyecto.project01_a.data.local.RedesSociales) {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {

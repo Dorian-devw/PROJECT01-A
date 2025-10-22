@@ -17,7 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.proyecto.project01_a.data.model.CandidatoDestacado
+import com.proyecto.project01_a.data.local.CandidatoDestacado
 
 @Composable
 fun HighlightedCandidateCard(

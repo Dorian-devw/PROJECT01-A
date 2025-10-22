@@ -1,6 +1,6 @@
 package com.proyecto.project01_a.data.repository
 
-import com.proyecto.project01_a.data.model.*
+import com.proyecto.project01_a.data.local.*
 import com.proyecto.project01_a.R
 object DecidePeruRepository {
 

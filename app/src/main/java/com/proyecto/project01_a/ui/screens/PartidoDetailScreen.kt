@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.proyecto.project01_a.data.model.Partido
+import com.proyecto.project01_a.data.local.Partido
 import com.proyecto.project01_a.data.repository.DecidePeruRepository // Importación
 import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar

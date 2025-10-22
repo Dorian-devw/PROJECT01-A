@@ -19,10 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.proyecto.project01_a.data.model.Candidato
-import com.proyecto.project01_a.data.model.CandidatoCongreso
-import com.proyecto.project01_a.data.model.Noticia
-import com.proyecto.project01_a.data.model.Partido
+import com.proyecto.project01_a.data.local.Candidato
+import com.proyecto.project01_a.data.local.CandidatoCongreso
+import com.proyecto.project01_a.data.local.Noticia
+import com.proyecto.project01_a.data.local.Partido
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

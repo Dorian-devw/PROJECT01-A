@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.proyecto.project01_a.data.model.ContenidoEducativo
+import com.proyecto.project01_a.data.local.ContenidoEducativo
 import com.proyecto.project01_a.data.repository.DecidePeruRepository
 import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar
