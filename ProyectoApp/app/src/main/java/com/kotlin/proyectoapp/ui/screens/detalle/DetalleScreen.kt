@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -106,7 +107,7 @@ fun DetalleScreen(
                                     contentDescription = "Foto de ${candidato.nombreCompleto}",
                                     modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop,
-                                    error = {
+                                    error = @androidx.compose.runtime.Composable {
                                         Icon(
                                             imageVector = Icons.Default.Person,
                                             contentDescription = null,
@@ -114,7 +115,7 @@ fun DetalleScreen(
                                                 .fillMaxSize()
                                                 .padding(24.dp)
                                         )
-                                    }
+                                    } as Painter?
                                 )
                             }
 

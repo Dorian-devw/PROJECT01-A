@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -45,7 +46,7 @@ fun CandidatoCard(
                     contentDescription = "Foto de ${candidato.nombreCompleto}",
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
-                    error = {
+                    error = @androidx.compose.runtime.Composable {
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = null,
@@ -53,7 +54,7 @@ fun CandidatoCard(
                                 .fillMaxSize()
                                 .padding(16.dp)
                         )
-                    }
+                    } as Painter?
                 )
             }
 

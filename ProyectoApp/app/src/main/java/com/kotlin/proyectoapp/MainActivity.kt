@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val application = application as CandidatoInfoApplication
+        val application = application as ProyectoApplication
         val repository = application.candidatoRepository
 
         setContent {

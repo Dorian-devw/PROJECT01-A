@@ -38,8 +38,8 @@ class DetalleViewModel(
                 repository.getCandidatoById(candidatoId)?.collect { candidato ->
                     _uiState.value = _uiState.value.copy(
                         candidato = candidato,
-                        proyectos = candidato.proyectos,
-                        denuncias = candidato.denuncias,
+                        proyectos = candidato?.proyectos ?: emptyList(),
+                        denuncias = candidato?.denuncias ?: emptyList(),
                         isLoading = false,
                         error = null
                     )
