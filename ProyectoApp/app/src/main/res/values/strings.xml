@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">ProyectoApp</string>
+    <string name="search_hint">Buscar candidato, partido o región…</string>
+    <string name="filter_all">Todos</string>
+    <string name="filter_presidencia">Presidencia</string>
+    <string name="filter_congreso">Congreso</string>
+    <string name="tab_projects">Proyectos</string>
+    <string name="tab_denuncias">Denuncias</string>
+    <string name="no_projects">Sin proyectos registrados</string>
+    <string name="no_denuncias">Sin denuncias registradas</string>
+    <string name="view_source">Ver fuente oficial</string>
+    <string name="compare_candidates">Comparar candidatos</string>
+    <string name="select_candidates">Selecciona hasta 3 candidatos</string>
+    <string name="clear_selection">Limpiar selección</string>
+    <string name="personal_info">Información Personal</string>
+    <string name="birth_date">Fecha de nacimiento</string>
+    <string name="profession">Profesión</string>
+    <string name="party">Partido</string>
+    <string name="region">Región</string>
+    <string name="email">Correo</string>
+    <string name="phone">Teléfono</string>
+    <string name="biography">Biografía</string>
+    <string name="loading">Cargando…</string>
+    <string name="error_loading">Error al cargar datos</string>
+    <string name="retry">Reintentar</string>
 </resources>
