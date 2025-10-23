@@ -4,14 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kotlin.proyectoapp.data.repository.CandidatoRepository
 
-class DetalleViewModelFactory(
-    private val repository: CandidatoRepository,
-    private val candidatoId: Int
+class HomeViewModelFactory(
+    private val repository: CandidatoRepository
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DetalleViewModel::class.java)) {
-            return DetalleViewModel(repository, candidatoId) as T
+        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+            return HomeViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
