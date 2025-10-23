@@ -9,6 +9,7 @@ data class Candidato(
     val edad: Int,
     val profesion: String,
     val biografia: String,
+    val region: String,
     val propuestas: List<Propuesta>,
     val denuncias: List<Denuncia>,
     val historial: List<CargoAnterior>,

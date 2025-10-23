@@ -1,10 +1,12 @@
 package com.proyecto.project01_a.data.repository
 
 import com.proyecto.project01_a.data.model.*
-import com.proyecto.project01_a.R
+import com.proyecto.project01_a.data.repository.DecidePeruConstants // <-- ¡IMPORTACIÓN CLAVE!
 object DecidePeruRepository {
 
     fun getCandidatosPresidenciales(): List<Candidato> {
+        // Lista estática y completa de los 25 departamentos/unidades territoriales de Perú
+
         return listOf(
             Candidato(
                 id = "1",
@@ -15,7 +17,7 @@ object DecidePeruRepository {
                 edad = 64,
                 profesion = "Político, Empresario e Ingeniero Industrial",
                 biografia = "Rafael Bernardo López-Aliaga Cazorla (Lima, 11 de febrero de 1961) es un empresario y político peruano. Es miembro del partido Renovación Popular. Fue alcalde metropolitano de Lima desde el 1 de enero de 2023 hasta su renuncia el 13 de octubre de 2025. Fue fundador y accionista de Peruval Corp SA además de ser accionista de Ferrocarril Transandino S. A. Es presidente del directorio de Peru Holding de Turismo (PTHSAA) desde 1991.",
-
+                region = "Lima",
                 propuestas = listOf(
                     Propuesta("Seguridad", "Traslado de Delincuentes a Cecot", "Los delincuentes de alta peligrosidad deben ser enviados a las cárceles Cecot de El Salvador.", "Alta"),
                     Propuesta("Justicia", "Reforma Judicial y Fiscal", "Reforma total de Poder Judicial y Fiscalía.", "Alta"),
@@ -97,7 +99,7 @@ object DecidePeruRepository {
                 edad = 50,
                 profesion = "Administradora",
                 biografia = "Administradora y política peruana. Es líder del partido Fuerza Popular y ha sido tres veces candidata presidencial llegando a la segunda vuelta en todas las ocasiones. Es la hija mayor del expresidente Alberto Fujimori, y fue Primera Dama del Perú de 1994 a 2000.",
-
+                region = "Lima",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
@@ -182,6 +184,7 @@ object DecidePeruRepository {
                 edad = 65,
                 profesion = "Empresario / Ingeniero Industrial",
                 biografia = "Empresario peruano, hermano del expresidente Martín Vizcarra. Es integrante del partido Perú Primero y ha sido un colaborador clave en las campañas políticas de su hermano. Su candidatura a la presidencia en 2026 es especulativa. Actualmente enfrenta una investigación fiscal por presuntos delitos de colusión y peculado.",
+                region = "Lima",
                 propuestas = listOf(
                     Propuesta("Generales", "Pendiente de Publicación", "Aún no se han oficializado las propuestas detalladas de la candidatura.", "Baja")
                 ),
@@ -219,7 +222,7 @@ object DecidePeruRepository {
                 profesion = "Comediante - Guionista",
 
                 biografia = "Carlos Álvarez (Lima, 7 de enero de 1964) es un comediante y presentador peruano conocido por sus imitaciones políticas. En 2024 se unió al partido País para Todos y en 2025 anunció su interés en postular a la presidencia en las elecciones de 2026.",
-
+                region = "Lima",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
@@ -600,6 +603,17 @@ object DecidePeruRepository {
     }
     fun getEncuestaFuenteUrl(): String {
         return "https://www.ipsos.com/es-pe/intencion-de-voto-septiembre-2025-ii-encuesta-america-tv-ipsos"
+    }
+    fun getAllPeruDepartmentsForFilter(): List<String> {
+        // Retorna la lista de constantes, añadiendo "Todos" al inicio.
+        return listOf("Todos") + DecidePeruConstants.ALL_PERU_DEPARTMENTS.sorted()
+    }
+    fun getAllUniquePartidosForFilter(): List<String> {
+        val uniquePartidos = getCandidatosPresidenciales()
+            .map { it.partido }
+            .distinct()
+            .sorted()
+        return listOf("Todos") + uniquePartidos
     }
 
 }

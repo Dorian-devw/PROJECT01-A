@@ -41,29 +41,33 @@ android {
 
 dependencies {
 
+    // --- DEPENDENCIAS CORE ---
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    // --- MANEJO DE VERSIONES: COMPOSE BOM (CRÍTICO) ---
+    // Usar el BOM es obligatorio para asegurar que todas las bibliotecas de Compose
+    // tengan versiones compatibles. Esto anula las versiones de abajo.
     implementation(platform(libs.androidx.compose.bom))
+
+    // --- DEPENDENCIAS DE COMPOSE (Ahora sin versión, gestionadas por el BOM) ---
+    //implementation(libs.androidx.compose.material3) // Ahora gestionada por el BOM
+    implementation("androidx.compose.material3:material3:1.2.1")
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
+
+    // Iconos de Material 3 (Estos reemplazan los antiguos material:material-icons-core/extended)
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.ui:ui")
+
+    // --- DEPENDENCIAS ADICIONALES ---
     implementation("androidx.navigation:navigation-compose:2.9.5")
     implementation("io.coil-kt:coil-compose:2.7.0")
-    implementation("androidx.compose.material:material-icons-core:1.7.4")
-    implementation("androidx.compose.material:material-icons-extended:1.7.4")
-    implementation("androidx.compose.foundation:foundation")
-    // Asegura la UI core (donde vive gran parte de la funcionalidad de Path/Graphics)
-    implementation("androidx.compose.ui:ui")
-// Si estás usando Compose BOM (Recomendado, debes tener un BOM en platform):
-    implementation(platform("androidx.compose:compose-bom:2024.04.00")) // o la versión más reciente
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.foundation:foundation") // <--- ESTA ES CRÍTICA PARA PAGER
-    implementation("io.coil-kt:coil-compose:2.7.0")
+
+    // --- DEPENDENCIAS DE PRUEBA ---
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
