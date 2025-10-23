@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kotlin.proyectoapp.data.repository.CandidatoRepository
-import com.kotlin.proyectoapp.ui.screens.comparar.CompararScreen
 import com.kotlin.proyectoapp.ui.screens.comparar.CompararViewModel
 import com.kotlin.proyectoapp.ui.screens.detalle.DetalleScreen
 import com.kotlin.proyectoapp.ui.screens.detalle.DetalleViewModel
