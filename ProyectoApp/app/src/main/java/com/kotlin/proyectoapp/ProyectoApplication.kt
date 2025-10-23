@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CandidatoInfoApplication : Application() {
+class ProyectoApplication : Application() {
 
     // Base de datos
     val database by lazy { AppDatabase.getDatabase(this) }
