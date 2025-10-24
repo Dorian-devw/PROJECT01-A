@@ -84,8 +84,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
-    // Coil for image loading
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    // Glide for image loading
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    ksp("com.github.bumptech.glide:ksp:4.16.0")
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
 
     // testeando ando
     testImplementation(libs.junit)

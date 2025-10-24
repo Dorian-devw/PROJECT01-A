@@ -14,12 +14,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import coil.compose.SubcomposeAsyncImage  // ✅ Cambiado de AsyncImage
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.kotlin.proyectoapp.R
 import com.kotlin.proyectoapp.ui.components.DenunciaItem
 import com.kotlin.proyectoapp.ui.components.ProjectItem
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalGlideComposeApi::class)
 @Composable
 fun DetalleScreen(
     viewModel: DetalleViewModel,
@@ -101,32 +102,10 @@ fun DetalleScreen(
                                     .clip(MaterialTheme.shapes.medium),
                                 color = MaterialTheme.colorScheme.surfaceVariant
                             ) {
-                                SubcomposeAsyncImage(  // ✅ Cambiado de AsyncImage
+                                GlideImage(
                                     model = candidato.fotoUrl,
                                     contentDescription = "Foto de ${candidato.nombreCompleto}",
-                                    modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop,
-                                    error = {  // ✅ Sin @Composable ni cast
-                                        Icon(
-                                            imageVector = Icons.Default.Person,
-                                            contentDescription = null,
-                                            modifier = Modifier
-                                                .fillMaxSize()
-                                                .padding(24.dp),
-                                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                                        )
-                                    },
-                                    loading = {  // ✅ Añadido indicador de carga
-                                        Box(
-                                            modifier = Modifier.fillMaxSize(),
-                                            contentAlignment = Alignment.Center
-                                        ) {
-                                            CircularProgressIndicator(
-                                                modifier = Modifier.size(32.dp),
-                                                strokeWidth = 3.dp
-                                            )
-                                        }
-                                    }
                                 )
                             }
 
@@ -270,7 +249,7 @@ fun DetalleScreen(
                                     ) {
                                         Text(stringResource(R.string.no_denuncias))
                                     }
-                                }
+                                 }
                             } else {
                                 items(
                                     items = uiState.denuncias,
@@ -280,7 +259,7 @@ fun DetalleScreen(
                                         denuncia = denuncia,
                                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
                                     )
-                                }
+                                 }
                             }
                         }
                     }

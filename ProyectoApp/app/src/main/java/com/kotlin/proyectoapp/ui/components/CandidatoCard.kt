@@ -12,9 +12,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.SubcomposeAsyncImage
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.kotlin.proyectoapp.domain.model.Candidato
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun CandidatoCard(
     candidato: Candidato,
@@ -40,32 +42,10 @@ fun CandidatoCard(
                     .clip(MaterialTheme.shapes.medium),
                 color = MaterialTheme.colorScheme.surfaceVariant
             ) {
-                SubcomposeAsyncImage(
+                GlideImage(
                     model = candidato.fotoUrl,
                     contentDescription = "Foto de ${candidato.nombreCompleto}",
-                    modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
-                    error = {
-                        Icon(
-                            imageVector = Icons.Default.Person,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    },
-                    loading = {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(24.dp),
-                                strokeWidth = 2.dp
-                            )
-                        }
-                    }
                 )
             }
 
