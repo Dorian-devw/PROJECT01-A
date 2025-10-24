@@ -12,6 +12,10 @@ interface CandidatoDao {
     @Query("SELECT * FROM candidatos")
     fun getCandidatosWithProyectosAndDenuncias(): Flow<List<CandidatoWithProyectosAndDenuncias>>
 
+    @Transaction
+    @Query("SELECT * FROM candidatos WHERE id = :id")
+    fun getCandidatoWithProyectosAndDenunciasById(id: Int): Flow<CandidatoWithProyectosAndDenuncias?>
+
     @Query("SELECT * FROM candidatos ORDER BY apellidos ASC")
     fun getAllCandidatos(): Flow<List<CandidatoEntity>>
 

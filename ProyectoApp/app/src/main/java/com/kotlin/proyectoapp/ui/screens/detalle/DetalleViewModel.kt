@@ -4,17 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kotlin.proyectoapp.data.repository.CandidatoRepository
 import com.kotlin.proyectoapp.domain.model.Candidato
-import com.kotlin.proyectoapp.domain.model.Denuncia
-import com.kotlin.proyectoapp.domain.model.Proyecto
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+// 1. Simplificamos el UiState
 data class DetalleUiState(
     val candidato: Candidato? = null,
-    val proyectos: List<Proyecto> = emptyList(),
-    val denuncias: List<Denuncia> = emptyList(),
     val isLoading: Boolean = false,
     val error: String? = null
 )
@@ -35,11 +32,10 @@ class DetalleViewModel(
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
             try {
+                // 2. La lógica ahora es más simple
                 repository.getCandidatoById(candidatoId)?.collect { candidato ->
                     _uiState.value = _uiState.value.copy(
-                        candidato = candidato,
-                        proyectos = candidato?.proyectos ?: emptyList(),
-                        denuncias = candidato?.denuncias ?: emptyList(),
+                        candidato = candidato, // El candidato ya tiene los proyectos y denuncias
                         isLoading = false,
                         error = null
                     )

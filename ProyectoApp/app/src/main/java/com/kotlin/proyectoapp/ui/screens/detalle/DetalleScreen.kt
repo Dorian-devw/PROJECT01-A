@@ -83,8 +83,7 @@ fun DetalleScreen(
                 val candidato = uiState.candidato!!
 
                 LazyColumn(
-                    modifier = modifier
-                        .fillMaxSize(),
+                    modifier = modifier.fillMaxSize(),
                     contentPadding = paddingValues
                 ) {
                     // Foto y nombre
@@ -122,7 +121,7 @@ fun DetalleScreen(
                             )
                         }
                     }
-                    // info de los detalles
+                    // Información personal
                     item {
                         Card(
                             modifier = Modifier
@@ -168,7 +167,7 @@ fun DetalleScreen(
                         }
                     }
 
-                    // biografia
+                    // Biografía
                     item {
                         Card(
                             modifier = Modifier
@@ -213,7 +212,7 @@ fun DetalleScreen(
                     // Contenido según tab seleccionado
                     when (selectedTabIndex) {
                         0 -> {
-                            if (uiState.proyectos.isEmpty()) {
+                            if (candidato.proyectos.isEmpty()) {
                                 item {
                                     Box(
                                         modifier = Modifier
@@ -226,7 +225,7 @@ fun DetalleScreen(
                                 }
                             } else {
                                 items(
-                                    items = uiState.proyectos,
+                                    items = candidato.proyectos,
                                     key = { it.id }
                                 ) { proyecto ->
                                     ProjectItem(
@@ -238,7 +237,7 @@ fun DetalleScreen(
                         }
 
                         1 -> {
-                            if (uiState.denuncias.isEmpty()) {
+                            if (candidato.denuncias.isEmpty()) {
                                 item {
                                     Box(
                                         modifier = Modifier
@@ -251,7 +250,7 @@ fun DetalleScreen(
                                  }
                             } else {
                                 items(
-                                    items = uiState.denuncias,
+                                    items = candidato.denuncias,
                                     key = { it.id }
                                 ) { denuncia ->
                                     DenunciaItem(

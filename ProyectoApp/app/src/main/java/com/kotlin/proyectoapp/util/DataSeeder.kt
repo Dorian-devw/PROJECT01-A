@@ -183,7 +183,7 @@ object DataSeeder { // datos simulados para la app
                 telefono = "+51 637 025 884"
             ),
             CandidatoEntity(
-                id = 13,
+                id = 12,
                 nombre = "Fiorella",
                 apellidos = "Molinelli Aristondo ",
                 cargo = "Presidencia",

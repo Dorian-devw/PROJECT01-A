@@ -10,8 +10,6 @@ import com.kotlin.proyectoapp.domain.model.Candidato
 import com.kotlin.proyectoapp.domain.model.Denuncia
 import com.kotlin.proyectoapp.domain.model.Proyecto
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class CandidatoRepository(
@@ -31,22 +29,15 @@ class CandidatoRepository(
         }
     }
 
-    fun getCandidatoById(id: Int): Flow<Candidato?> = flow {
-        val candidatoEntity = candidatoDao.getCandidatoById(id)
-        if (candidatoEntity == null) {
-            emit(null)
-            return@flow
+    fun getCandidatoById(id: Int): Flow<Candidato?> {
+        return candidatoDao.getCandidatoWithProyectosAndDenunciasById(id).map { result ->
+            result?.let {
+                it.candidato.toDomainModel(
+                    proyectos = it.proyectos.map { p -> p.toDomainModel() },
+                    denuncias = it.denuncias.map { d -> d.toDomainModel() }
+                )
+            }
         }
-
-        combine(
-            proyectoDao.getProyectosByCandidato(id),
-            denunciaDao.getDenunciasByCandidato(id)
-        ) { proyectosList, denunciasList ->
-            candidatoEntity.toDomainModel(
-                proyectos = proyectosList.map { it.toDomainModel() },
-                denuncias = denunciasList.map { it.toDomainModel() }
-            )
-        }.collect { emit(it) }
     }
 
     fun searchCandidatos(query: String): Flow<List<Candidato>> {

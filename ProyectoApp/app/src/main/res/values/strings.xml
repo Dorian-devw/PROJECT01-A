@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoApp</string>
+    <string name="app_name">EligePeru</string>
     <string name="search_hint">Buscar candidato, partido o región…</string>
     <string name="filter_all">Todos</string>
     <string name="filter_presidencia">Presidencia</string>
