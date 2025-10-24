@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForwardIos // Importar el icono
-import androidx.compose.material3.* // Importar Material3 componentes
+import androidx.compose.material.icons.filled.ArrowForwardIos
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,16 +18,13 @@ import com.proyecto.project01_a.data.repository.DecidePeruRepository
 @Composable
 fun FeaturedSection(
     onCandidateClick: (String) -> Unit,
-    // NUEVO: Callback para abrir el enlace externo
     onViewFullSourceClick: (String) -> Unit
 ) {
     val destacados = DecidePeruRepository.getCandidatosDestacados()
-    // Asegúrate de que esta función exista en DecidePeruRepository
     val sourceUrl = DecidePeruRepository.getEncuestaFuenteUrl()
 
     Column(modifier = Modifier.fillMaxWidth()) {
 
-        // 1. TÍTULO Y ENLACE "VER COMPLETO"
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -35,10 +32,9 @@ fun FeaturedSection(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // TÍTULO Y SUBTÍTULO
             Column {
                 Text(
-                    text = "Líderes en Encuestas", // Título limpio
+                    text = "Líderes en Encuestas",
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
@@ -52,14 +48,14 @@ fun FeaturedSection(
             // ENLACE "VER COMPLETO"
             Row(
                 modifier = Modifier
-                    .clickable { onViewFullSourceClick(sourceUrl) }, // LLAMA AL CALLBACK
+                    .clickable { onViewFullSourceClick(sourceUrl) },
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = "Ver Completo",
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.labelMedium,
-                    textDecoration = TextDecoration.Underline // Subrayado opcional
+                    textDecoration = TextDecoration.Underline
                 )
                 Icon(
                     imageVector = Icons.Default.ArrowForwardIos,
@@ -72,7 +68,6 @@ fun FeaturedSection(
             }
         }
 
-        // 2. LazyRow (sigue igual)
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)

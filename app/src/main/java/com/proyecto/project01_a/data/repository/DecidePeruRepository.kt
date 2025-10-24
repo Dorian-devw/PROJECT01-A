@@ -1,11 +1,9 @@
 package com.proyecto.project01_a.data.repository
 
 import com.proyecto.project01_a.data.model.*
-import com.proyecto.project01_a.data.repository.DecidePeruConstants // <-- ¡IMPORTACIÓN CLAVE!
 object DecidePeruRepository {
 
     fun getCandidatosPresidenciales(): List<Candidato> {
-        // Lista estática y completa de los 25 departamentos/unidades territoriales de Perú
 
         return listOf(
             Candidato(
@@ -513,14 +511,14 @@ object DecidePeruRepository {
     fun getCandidatosDestacados(): List<CandidatoDestacado> {
         return listOf(
             CandidatoDestacado(
-                id = "rafael_lopez",
+                id = "1",
                 nombre = "Rafael Lopez Aliaga",
                 porcentaje = "10%",
                 partido = "Renovación Popular",
                 imagenUrl = "https://pbs.twimg.com/profile_images/1372582295987757058/P2yzmjJP_400x400.jpg"
             ),
             CandidatoDestacado(
-                id = "keiko_fujimori",
+                id = "2",
                 nombre = "Keiko Fujimori",
                 porcentaje = "7%",
                 partido = "Fuerza Popular",
@@ -528,7 +526,7 @@ object DecidePeruRepository {
 
             ),
             CandidatoDestacado(
-                id = "mario_vizcarra",
+                id = "3",
                 nombre = "Mario Vizcarra",
                 porcentaje = "7%",
                 partido = "Perú Primero",
@@ -536,21 +534,21 @@ object DecidePeruRepository {
 
             ),
             CandidatoDestacado(
-                id = "carlos_alvarez",
+                id = "4",
                 nombre = "Carlos Álvarez",
                 porcentaje = "4%",
                 partido = "País para Todos",
                 imagenUrl = "https://storage.googleapis.com/repositorio-willax-prd/web-willax-assets/migrated/2018/07/alvarez.png"
             ),
             CandidatoDestacado(
-                id = "phillip_butters",
+                id = "5",
                 nombre = "Phillip Butters",
                 porcentaje = "3%",
                 partido = "Avanza País",
                 imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTurIcqYrhwZh-E8rMm69RyQDY2J-a6Amm7PA&s"
             ),
             CandidatoDestacado(
-                id = "cesar_acuña",
+                id = "6",
                 nombre = "César Acuña",
                 porcentaje = "2%",
                 partido = "Alianza para el Progreso",
@@ -558,14 +556,14 @@ object DecidePeruRepository {
 
             ),
             CandidatoDestacado(
-                id = "yonhy_lescano",
+                id = "7",
                 nombre = "Yonhy Lescano",
                 porcentaje = "2%",
                 partido = "Cooperación Popular",
                 imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqgvmq2wnbEC57TIkmmHPmdyb-B8owKBrwTQ&s"
             ),
             CandidatoDestacado(
-                id = "rafael_belaunde",
+                id = "8",
                 nombre = "Rafael Belaunde",
                 porcentaje = "2%",
                 partido = "Libertad Popular",
@@ -573,7 +571,7 @@ object DecidePeruRepository {
 
             ),
             CandidatoDestacado(
-                id = "guillermo_bermejo",
+                id = "9",
                 nombre = "Guillermo Bermejo",
                 porcentaje = "2%",
                 partido = " Alianza Electoral",
@@ -598,9 +596,9 @@ object DecidePeruRepository {
         return getContenidoEducativo().find { it.id == id }
     }
 
-    fun getCandidatoDetail(id: String): Candidato? {
+    /*fun getCandidatoDetail(id: String): Candidato? {
         return getCandidatosPresidenciales().find { it.id == id }
-    }
+    }*/
     fun getEncuestaFuenteUrl(): String {
         return "https://www.ipsos.com/es-pe/intencion-de-voto-septiembre-2025-ii-encuesta-america-tv-ipsos"
     }
