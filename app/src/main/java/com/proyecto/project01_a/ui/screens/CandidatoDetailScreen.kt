@@ -11,18 +11,22 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.proyecto.project01_a.data.model.*
 import com.proyecto.project01_a.data.repository.DecidePeruRepository
-import com.proyecto.project01_a.ui.components.InfoChip
-import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.material.icons.filled.Link
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 @Composable
 fun CandidatoDetailScreen(
     candidatoId: String,
@@ -57,80 +61,7 @@ fun CandidatoDetailScreen(
                 .padding(paddingValues)
         ) {
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(MaterialTheme.colorScheme.primaryContainer)
-                        .padding(24.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        AsyncImage(
-                            model = candidato.fotoUrl,
-                            contentDescription = candidato.nombre,
-                            modifier = Modifier
-                                .size(140.dp)
-                                .clip(CircleShape),
-                            contentScale = ContentScale.Crop
-                        )
-
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        Text(
-                            text = candidato.nombre,
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer
-                        )
-
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        Surface(
-                            shape = RoundedCornerShape(20.dp),
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.clickable { /* Navigate to partido */ }
-                        ) {
-                            Row(
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(
-                                    text = candidato.partido,
-                                    style = MaterialTheme.typography.titleSmall,
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                    fontWeight = FontWeight.Medium
-                                )
-                                Icon(
-                                    imageVector = Icons.Default.ChevronRight,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onPrimary,
-                                    modifier = Modifier.size(18.dp)
-                                )
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            InfoChip(
-                                label = "Edad",
-                                value = "${candidato.edad} años",
-                                modifier = Modifier.weight(1f)
-                            )
-                            Spacer(modifier = Modifier.width(12.dp))
-                            InfoChip(
-                                label = "Profesión",
-                                value = candidato.profesion,
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-                    }
-                }
+                CandidatoHeader(candidato = candidato, onNavigateToPartido = onNavigateToPartido)
             }
 
             item {
@@ -205,28 +136,200 @@ fun CandidatoDetailScreen(
                 }
             }
 
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
+        }
+    }
+}
+
+// --- Nuevo Componente de Cabecera (Header) ---
+// --- Nuevo Componente de Cabecera (Header) ---
+@Composable
+fun CandidatoHeader(
+    candidato: Candidato,
+    onNavigateToPartido: (String) -> Unit
+) {
+    // Usamos rememberLauncherForActivityResult para manejar la apertura de URLs
+    val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current // Mejor práctica para abrir URLs en Compose
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(350.dp) // Mantenemos 350dp para un buen espacio
+            .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
+    ) {
+        // 1. Imagen de Fondo
+        AsyncImage(
+            model = candidato.fotoUrl,
+            contentDescription = candidato.nombre,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+
+        // 2. Overlay de Sombra Suave (paleta de colores ajustada para un contraste más suave)
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .background(Color.Black.copy(alpha = 0.35f)) // Ligeramente menos opaco para ser más "ligero"
+        )
+
+        // 3. Contenido Superpuesto (Nombre, Partido, Chips)
+        Column(
+            // **CAMBIO CLAVE 1: Alineamos al centro y añadimos padding superior**
+            // Usamos Alignment.TopCenter y un espaciador o padding para empujar el contenido.
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center) // Alineamos al centro de la Box, luego usamos padding para ajustarlo
+                .padding(horizontal = 24.dp), // Padding a los lados
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // **CAMBIO CLAVE 2: Espaciador superior para empujar el contenido hacia abajo (posición 40)**
+            // 350dp * 40% = 140dp. Usaremos un Spacer que lo empuje a esa posición.
+            Spacer(modifier = Modifier.height(150.dp)) // Espaciador para empezar el contenido más arriba que el centro.
+
+            // Nombre
+            Text(
+                text = candidato.nombre,
+                style = MaterialTheme.typography.headlineLarge,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.White
+            )
+
+            Spacer(modifier = Modifier.height(8.dp)) // Aumentado para mejor separación visual
+
+            // Partido (Botón/Chip de navegación)
+            Surface(
+                shape = RoundedCornerShape(20.dp),
+                // **AJUSTE DE COLOR: Usamos el color principal para coherencia**
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.clickable { onNavigateToPartido(candidato.partido) }
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    SectionTitle(
-                        title = "Redes Sociales",
-                        icon = Icons.Default.Share
+                    Text(
+                        text = candidato.partido,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                        fontWeight = FontWeight.Medium
                     )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    RedesSocialesSection(candidato.redesSociales)
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onPrimary,
+                        modifier = Modifier.size(20.dp)
+                    )
                 }
-                Spacer(modifier = Modifier.height(32.dp))
             }
+
+            Spacer(modifier = Modifier.height(24.dp)) // Aumentado el espacio antes de los chips
+
+            // Chips de Edad y Profesión
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(IntrinsicSize.Max),
+            horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                // Chip Edad
+                InfoChip(
+                    label = "Edad",
+                    value = "${candidato.edad} años",
+                    modifier = Modifier.weight(1f)
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                // Chip Profesión
+                InfoChip(
+                    label = "Profesión",
+                    value = candidato.profesion,
+                    modifier = Modifier.weight(1.5f),
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            // Espaciador para empujar el contenido arriba si no está centrado
+            Spacer(modifier = Modifier.height(30.dp))
+        }
+        // ** 4. NUEVA ADICIÓN: Botón de Fuente (Alineado en la esquina inferior izquierda) **
+        // Usamos Surface para el estilo de chip y lo alineamos a BottomStart
+        Surface(
+            shape = RoundedCornerShape(bottomEnd = 10.dp), // Solo borde redondeado en la parte superior derecha
+            color = Color.White.copy(alpha = 0.8f), // Fondo semi-transparente para contrastar
+            modifier = Modifier
+                .align(Alignment.TopEnd) // ALINEACIÓN CLAVE: Inferior Izquierda
+                .clickable { uriHandler.openUri(candidato.fuenteUrl) }
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Link, // Ícono de enlace o fuente
+                    contentDescription = "Fuente",
+                    tint = MaterialTheme.colorScheme.primary, // Color del tema para destacar
+                    modifier = Modifier.size(16.dp)
+                )
+                Spacer(modifier = Modifier.width(6.dp))
+                Text(
+                    text = "Ver Fuente",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Medium
+                )
+            }
+        }
+        // ********************************************************************************
+
+    }
+}
+
+// --- Componente InfoChip (Definición Asumida y Mejorada para aceptar TextAlign) ---
+// --- Componente InfoChip (Definición Asumida y Mejorada para aceptar TextAlign) ---
+@Composable
+fun InfoChip(
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign? = null // Nuevo parámetro opcional para alineación del valor
+) {
+    Card(
+        // **CAMBIO CLAVE 3: Corregimos la altura mínima para evitar recortes.**
+        modifier = modifier.heightIn(min = 5.dp),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            // **AJUSTE DE COLOR: Usamos primary/secondary con baja opacidad para coherencia.**
+            containerColor = Color.Black.copy(alpha = 0.7f) // Fondo de chip más coherente
+        ),
+        elevation = CardDefaults.cardElevation(0.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+            .padding(horizontal = 8.dp, vertical = 6.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                // **AJUSTE DE COLOR: Texto secundario para el label, pero legible**
+                color = Color.White.copy(alpha = 0.8f),
+                fontWeight = FontWeight.Normal
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.titleSmall,
+                // **AJUSTE DE COLOR: Texto principal (blanco) para el valor**
+                color = Color.White,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = textAlign
+            )
         }
     }
 }
 
 @Composable
-fun PropuestaCard(propuesta: com.proyecto.project01_a.data.model.Propuesta) {
+fun PropuestaCard(propuesta: Propuesta) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -300,7 +403,7 @@ fun PropuestaCard(propuesta: com.proyecto.project01_a.data.model.Propuesta) {
 }
 
 @Composable
-fun HistorialCard(cargo: com.proyecto.project01_a.data.model.CargoAnterior) {
+fun HistorialCard(cargo: CargoAnterior) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -370,7 +473,7 @@ fun HistorialCard(cargo: com.proyecto.project01_a.data.model.CargoAnterior) {
 }
 
 @Composable
-fun DenunciaCard(denuncia: com.proyecto.project01_a.data.model.Denuncia) {
+fun DenunciaCard(denuncia: Denuncia) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -447,7 +550,7 @@ fun DenunciaCard(denuncia: com.proyecto.project01_a.data.model.Denuncia) {
 }
 
 @Composable
-fun FinanciamientoCard(financiamiento: com.proyecto.project01_a.data.model.Financiamiento) {
+fun FinanciamientoCard(financiamiento: Financiamiento) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -548,28 +651,6 @@ fun FinanciamientoCard(financiamiento: com.proyecto.project01_a.data.model.Finan
     }
 }
 
-@Composable
-fun RedesSocialesSection(redes: com.proyecto.project01_a.data.model.RedesSociales) {
-    Column(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        redes.facebook?.let {
-            SocialMediaButton("Facebook", Icons.Default.Facebook)
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        redes.twitter?.let {
-            SocialMediaButton("Twitter / X", Icons.Default.Tag)
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        redes.instagram?.let {
-            SocialMediaButton("Instagram", Icons.Default.CameraAlt)
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        redes.webOficial?.let {
-            SocialMediaButton("Sitio Web Oficial", Icons.Default.Language)
-        }
-    }
-}
 
 @Composable
 fun SocialMediaButton(name: String, icon: ImageVector) {

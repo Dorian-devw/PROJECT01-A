@@ -16,6 +16,7 @@ object DecidePeruRepository {
                 profesion = "Político, Empresario e Ingeniero Industrial",
                 biografia = "Rafael Bernardo López-Aliaga Cazorla (Lima, 11 de febrero de 1961) es un empresario y político peruano. Es miembro del partido Renovación Popular. Fue alcalde metropolitano de Lima desde el 1 de enero de 2023 hasta su renuncia el 13 de octubre de 2025. Fue fundador y accionista de Peruval Corp SA además de ser accionista de Ferrocarril Transandino S. A. Es presidente del directorio de Peru Holding de Turismo (PTHSAA) desde 1991.",
                 region = "Lima",
+                fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/rafael-bernardo-l%C3%B3pez-aliaga-cazorla_historial-partidario_I+zxcOsfVGI=zO",
                 propuestas = listOf(
                     Propuesta("Seguridad", "Traslado de Delincuentes a Cecot", "Los delincuentes de alta peligrosidad deben ser enviados a las cárceles Cecot de El Salvador.", "Alta"),
                     Propuesta("Justicia", "Reforma Judicial y Fiscal", "Reforma total de Poder Judicial y Fiscalía.", "Alta"),
@@ -81,12 +82,7 @@ object DecidePeruRepository {
                     fuentesPrincipales = listOf("Aportes propios", "Donaciones empresariales"),
                     transparencia = "Media"
                 ),
-                redesSociales = RedesSociales(
-                    facebook = "https://facebook.com/rafaellopezaliaga",
-                    twitter = "https://twitter.com/rlopezaliaga",
-                    instagram = "https://instagram.com/rafaellopezaliaga",
-                    webOficial = "https://renovacionpopular.pe"
-                )
+
             ),
             Candidato(
                 id = "2",
@@ -98,6 +94,7 @@ object DecidePeruRepository {
                 profesion = "Administradora",
                 biografia = "Administradora y política peruana. Es líder del partido Fuerza Popular y ha sido tres veces candidata presidencial llegando a la segunda vuelta en todas las ocasiones. Es la hija mayor del expresidente Alberto Fujimori, y fue Primera Dama del Perú de 1994 a 2000.",
                 region = "Lima",
+                fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/keiko-sofia-fujimori-higuchi_historial-partidario_Q43AyhFWlVg=3h",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
@@ -166,12 +163,7 @@ object DecidePeruRepository {
                     transparencia = "Baja"
                 ),
 
-                redesSociales = RedesSociales(
-                    facebook = "https://www.facebook.com/KeikoFujimoriH/",
-                    twitter = "https://twitter.com/KeikoFujimori",
-                    instagram = "https://www.instagram.com/keikofujimori/",
-                    webOficial = "https://fuerzapopular.com.pe"
-                )
+
             ),
             Candidato(
                 id = "3",
@@ -183,6 +175,8 @@ object DecidePeruRepository {
                 profesion = "Empresario / Ingeniero Industrial",
                 biografia = "Empresario peruano, hermano del expresidente Martín Vizcarra. Es integrante del partido Perú Primero y ha sido un colaborador clave en las campañas políticas de su hermano. Su candidatura a la presidencia en 2026 es especulativa. Actualmente enfrenta una investigación fiscal por presuntos delitos de colusión y peculado.",
                 region = "Lima",
+                fuenteUrl = "https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026#Posibles_precandidaturas_presidenciales",
+
                 propuestas = listOf(
                     Propuesta("Generales", "Pendiente de Publicación", "Aún no se han oficializado las propuestas detalladas de la candidatura.", "Baja")
                 ),
@@ -203,12 +197,6 @@ object DecidePeruRepository {
                     transparencia = "Baja"
                 ),
 
-                redesSociales = RedesSociales(
-                    facebook = "https://facebook.com/mariovizcarra",
-                    twitter = "https://twitter.com/mariovizcarra",
-                    instagram = "https://instagram.com/mariovizcarra",
-                    webOficial = "https://peruprimero.com"
-                )
             ),
             Candidato(
                 id = "4",
@@ -218,9 +206,9 @@ object DecidePeruRepository {
                 fotoUrl = "https://storage.googleapis.com/repositorio-willax-prd/web-willax-assets/migrated/2018/07/alvarez.png",
                 edad = 61,
                 profesion = "Comediante - Guionista",
-
                 biografia = "Carlos Álvarez (Lima, 7 de enero de 1964) es un comediante y presentador peruano conocido por sus imitaciones políticas. En 2024 se unió al partido País para Todos y en 2025 anunció su interés en postular a la presidencia en las elecciones de 2026.",
                 region = "Lima",
+                fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/carlos-gonsalo-alvarez-loayza_historial-partidario_xTU3PM2fFr4=UM",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
@@ -240,12 +228,7 @@ object DecidePeruRepository {
                         descripcion = "Plantea cadena perpetua para funcionarios o autoridades cuya corrupción haya causado muertes, como en la pandemia del COVID-19.",
                         prioridad = "Alta"
                     ),
-                    Propuesta(
-                        categoria = "Salud Pública",
-                        titulo = "Comisión de la Verdad sobre la pandemia del COVID-19",
-                        descripcion = "Propone crear una comisión que investigue irregularidades y responsabilidades en la gestión estatal de la pandemia.",
-                        prioridad = "Media"
-                    ),
+
                     Propuesta(
                         categoria = "Reforma Judicial",
                         titulo = "Reforma profunda del sistema judicial",
@@ -285,12 +268,7 @@ object DecidePeruRepository {
                     fuentesPrincipales = listOf("No declaradas"),
                     transparencia = "Baja"
                 ),
-                redesSociales = RedesSociales(
-                    facebook = "https://facebook.com/carlosalvarez",
-                    twitter = "https://twitter.com/carlosalvarez",
-                    instagram = "https://instagram.com/carlosalvarez",
-                    webOficial = "https://paisparatodos"
-                )
+
             ),
 
         )

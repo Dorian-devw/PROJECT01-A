@@ -10,11 +10,11 @@ data class Candidato(
     val profesion: String,
     val biografia: String,
     val region: String,
+    val fuenteUrl: String,
     val propuestas: List<Propuesta>,
     val denuncias: List<Denuncia>,
     val historial: List<CargoAnterior>,
     val financiamiento: Financiamiento,
-    val redesSociales: RedesSociales
 )
 
 data class Propuesta(
@@ -45,12 +45,6 @@ data class Financiamiento(
     val transparencia: String // Alta, Media, Baja
 )
 
-data class RedesSociales(
-    val facebook: String?,
-    val twitter: String?,
-    val instagram: String?,
-    val webOficial: String?
-)
 
 data class Partido(
     val id: String,

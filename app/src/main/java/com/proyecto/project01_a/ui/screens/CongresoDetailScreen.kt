@@ -19,7 +19,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.proyecto.project01_a.data.repository.DecidePeruRepository
-import com.proyecto.project01_a.ui.components.InfoChip
 import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar
 
