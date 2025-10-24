@@ -1,4 +1,4 @@
-# 🗳️ CandidatoInfo - Transparencia Electoral Ciudadana
+# 🗳️ EligePerú - Transparencia Electoral Ciudadana
 
 ## 📋 Descripción del Proyecto
 
