@@ -110,12 +110,23 @@ fun CandidatoDetailScreen(
             when (selectedTab) {
                 0 -> {
                     items(candidato.propuestas) { propuesta ->
-                        PropuestaCard(propuesta)
+                        PropuestaCard(
+                            propuesta = propuesta,
+                            propuestasFuenteUrl = candidato.fuentePropuestasUrl
+                        )
                     }
                 }
                 1 -> {
-                    items(candidato.historial) { cargo ->
-                        HistorialCard(cargo)
+                    if (candidato.historial.isEmpty()){
+                        item{
+                            EmptyStateCard("No hay historial registrado")
+                        }
+                    } else {
+                        items(candidato.historial) { cargo ->
+                            HistorialCard(cargo = cargo,
+                            historialFuenteUrl = candidato.fuenteHistorialUrl
+                            )
+                        }
                     }
                 }
                 2 -> {
@@ -329,7 +340,13 @@ fun InfoChip(
 }
 
 @Composable
-fun PropuestaCard(propuesta: Propuesta) {
+fun PropuestaCard(
+    propuesta: Propuesta,
+    // ¡NUEVO PARÁMETRO! Recibe la URL de la fuente desde el padre (Candidato)
+    propuestasFuenteUrl: String
+) {
+    val uriHandler = LocalUriHandler.current
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -342,11 +359,13 @@ fun PropuestaCard(propuesta: Propuesta) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            // --- Fila Superior (Categoría y Prioridad) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                // Surface de Categoría
                 Surface(
                     shape = RoundedCornerShape(6.dp),
                     color = MaterialTheme.colorScheme.secondaryContainer
@@ -360,6 +379,7 @@ fun PropuestaCard(propuesta: Propuesta) {
                     )
                 }
 
+                // Surface de Prioridad
                 Surface(
                     shape = RoundedCornerShape(6.dp),
                     color = when (propuesta.prioridad) {
@@ -384,6 +404,7 @@ fun PropuestaCard(propuesta: Propuesta) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Título y Descripción
             Text(
                 text = propuesta.titulo,
                 style = MaterialTheme.typography.titleMedium,
@@ -398,12 +419,45 @@ fun PropuestaCard(propuesta: Propuesta) {
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+
+            // --- NUEVA SECCIÓN: Botón de Fuente ---
+            if (propuestasFuenteUrl.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Botón de Fuente
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { uriHandler.openUri(propuestasFuenteUrl) }
+                        .padding(top = 4.dp), // Pequeño padding interno para el clic
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Link,
+                        contentDescription = "Fuente de las propuestas",
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "Fuente de Propuestas",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
         }
     }
 }
 
 @Composable
-fun HistorialCard(cargo: CargoAnterior) {
+fun HistorialCard(
+    cargo: CargoAnterior,
+    historialFuenteUrl: String // NUEVO PARÁMETRO
+) {
+    val uriHandler = LocalUriHandler.current
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -411,62 +465,95 @@ fun HistorialCard(cargo: CargoAnterior) {
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
+        Column( // Cambiado a Column para que el enlace quede abajo de la Row principal
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(48.dp)
-                    .background(
-                        MaterialTheme.colorScheme.primaryContainer,
-                        CircleShape
-                    ),
-                contentAlignment = Alignment.Center
+            // Fila principal con ícono y detalles
+            Row(
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Icon(
-                    imageVector = Icons.Default.Work,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer
-                )
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .background(
+                            MaterialTheme.colorScheme.primaryContainer,
+                            CircleShape
+                        ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Work,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(16.dp))
+
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text(
+                        text = cargo.cargo,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Text(
+                        text = cargo.institucion,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Text(
+                        text = cargo.periodo,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = cargo.descripcion,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
 
-            Spacer(modifier = Modifier.width(16.dp))
+            // --- Botón de Fuente ---
+            if (historialFuenteUrl.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(12.dp))
 
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = cargo.cargo,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = cargo.institucion,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = cargo.periodo,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = cargo.descripcion,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { uriHandler.openUri(historialFuenteUrl) }
+                        .padding(top = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.End // Alineamos a la derecha
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Link,
+                        contentDescription = "Fuente del historial",
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "Ver Fuente del Historial",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
             }
         }
     }
@@ -474,6 +561,8 @@ fun HistorialCard(cargo: CargoAnterior) {
 
 @Composable
 fun DenunciaCard(denuncia: Denuncia) {
+    val uriHandler = LocalUriHandler.current
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -489,6 +578,7 @@ fun DenunciaCard(denuncia: Denuncia) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            // --- Fila Superior (Tipo y Año) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -521,6 +611,7 @@ fun DenunciaCard(denuncia: Denuncia) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Descripción
             Text(
                 text = denuncia.descripcion,
                 style = MaterialTheme.typography.bodyMedium,
@@ -529,28 +620,59 @@ fun DenunciaCard(denuncia: Denuncia) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Surface(
-                shape = RoundedCornerShape(6.dp),
-                color = when (denuncia.estado) {
-                    "Archivado" -> MaterialTheme.colorScheme.surfaceVariant
-                    "En proceso" -> MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)
-                    "Sentenciado" -> MaterialTheme.colorScheme.error.copy(alpha = 0.2f)
-                    else -> MaterialTheme.colorScheme.surfaceVariant
-                }
+            // --- SECCIÓN CORREGIDA: Fila para ESTADO (Izquierda) y FUENTE (Derecha) ---
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "Estado: ${denuncia.estado}",
-                    style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
-                    fontWeight = FontWeight.Medium
-                )
-            }
+                // 1. Estado de la Denuncia (Surface alineado a la izquierda)
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = when (denuncia.estado) {
+                        "Archivado" -> MaterialTheme.colorScheme.surfaceVariant
+                        "En proceso" -> MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)
+                        "Sentenciado" -> MaterialTheme.colorScheme.error.copy(alpha = 0.2f)
+                        else -> MaterialTheme.colorScheme.surfaceVariant
+                    }
+                ) {
+                    Text(
+                        text = "Estado: ${denuncia.estado}",
+                        style = MaterialTheme.typography.labelMedium,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+
+                // 2. Botón de Fuente (Row alineado a la derecha)
+                Row(
+                    modifier = Modifier
+                        .clickable { uriHandler.openUri(denuncia.fuenteUrl) }
+                        .padding(vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Link,
+                        contentDescription = "Fuente de la denuncia",
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "Ver Fuente",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.error,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+            } // Fin de la Row que separa el Estado y la Fuente
         }
     }
 }
-
 @Composable
 fun FinanciamientoCard(financiamiento: Financiamiento) {
+    val uriHandler = LocalUriHandler.current // Obtiene el manejador para abrir URLs
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -563,6 +685,7 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
                 .fillMaxWidth()
                 .padding(20.dp)
         ) {
+            // Monto Declarado
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -583,6 +706,7 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
+            // Fuentes Principales Título
             Text(
                 text = "Fuentes Principales",
                 style = MaterialTheme.typography.titleMedium,
@@ -592,6 +716,7 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Lista de Fuentes
             financiamiento.fuentesPrincipales.forEach { fuente ->
                 Row(
                     modifier = Modifier
@@ -620,6 +745,7 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Transparencia
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -647,36 +773,38 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
                     )
                 }
             }
+
+            // --- SECCIÓN CORREGIDA: Botón de Fuente con verificación ---
+            if (financiamiento.fuenteUrl.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { uriHandler.openUri(financiamiento.fuenteUrl) }
+                        .padding(vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.End // Alineado a la Derecha
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Link,
+                        contentDescription = "Fuente de Financiamiento",
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "Ver Fuente",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+            }
         }
     }
 }
 
-
-@Composable
-fun SocialMediaButton(name: String, icon: ImageVector) {
-    OutlinedButton(
-        onClick = { /* Open URL */ },
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = name,
-            modifier = Modifier.size(20.dp)
-        )
-        Spacer(modifier = Modifier.width(12.dp))
-        Text(
-            text = name,
-            modifier = Modifier.weight(1f),
-            style = MaterialTheme.typography.bodyLarge
-        )
-        Icon(
-            imageVector = Icons.Default.OpenInNew,
-            contentDescription = null,
-            modifier = Modifier.size(18.dp)
-        )
-    }
-}
 
 @Composable
 fun EmptyStateCard(message: String) {

@@ -11,6 +11,8 @@ data class Candidato(
     val biografia: String,
     val region: String,
     val fuenteUrl: String,
+    val fuentePropuestasUrl: String,
+    val fuenteHistorialUrl: String,
     val propuestas: List<Propuesta>,
     val denuncias: List<Denuncia>,
     val historial: List<CargoAnterior>,
@@ -21,7 +23,7 @@ data class Propuesta(
     val categoria: String,
     val titulo: String,
     val descripcion: String,
-    val prioridad: String // Alta, Media, Baja
+    val prioridad: String, // Alta, Media, Baja
 )
 
 data class Denuncia(
@@ -42,7 +44,8 @@ data class CargoAnterior(
 data class Financiamiento(
     val montoDeclared: String,
     val fuentesPrincipales: List<String>,
-    val transparencia: String // Alta, Media, Baja
+    val transparencia: String, // Alta, Media, Baja
+    val fuenteUrl: String
 )
 
 

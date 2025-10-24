@@ -17,6 +17,8 @@ object DecidePeruRepository {
                 biografia = "Rafael Bernardo López-Aliaga Cazorla (Lima, 11 de febrero de 1961) es un empresario y político peruano. Es miembro del partido Renovación Popular. Fue alcalde metropolitano de Lima desde el 1 de enero de 2023 hasta su renuncia el 13 de octubre de 2025. Fue fundador y accionista de Peruval Corp SA además de ser accionista de Ferrocarril Transandino S. A. Es presidente del directorio de Peru Holding de Turismo (PTHSAA) desde 1991.",
                 region = "Lima",
                 fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/rafael-bernardo-l%C3%B3pez-aliaga-cazorla_historial-partidario_I+zxcOsfVGI=zO",
+                fuentePropuestasUrl = "https://declara.jne.gob.pe/ASSETS/PLANGOBIERNO/FILEPLANGOBIERNO/16482.pdf",
+                fuenteHistorialUrl = "https://es.wikipedia.org/wiki/Rafael_L%C3%B3pez_Aliaga",
                 propuestas = listOf(
                     Propuesta("Seguridad", "Traslado de Delincuentes a Cecot", "Los delincuentes de alta peligrosidad deben ser enviados a las cárceles Cecot de El Salvador.", "Alta"),
                     Propuesta("Justicia", "Reforma Judicial y Fiscal", "Reforma total de Poder Judicial y Fiscalía.", "Alta"),
@@ -35,7 +37,8 @@ object DecidePeruRepository {
                         descripcion = "Investigación por presunto lavado de activos relacionados con corrupción de funcionarios, a través de empresas del grupo ACRES, por aproximadamente S/ 1 millón.",
                         año = 2022,
                         estado = "En proceso",
-                        fuenteUrl = "https://www.pj.gob.pe/wps/wcm/connect/62f8a3004137128aaf6cbf1666a80600/9-9+CASO+LOPEZ+ALIAGA.pdf?MOD=AJPERES&CACHEID=62f8a3004137128aaf6cbf1666a80600"
+                        fuenteUrl = "https://www.pj.gob.pe/wps/wcm/connect/62f8a3004137128aaf6cbf1666a80600/9-9+CASO+LOPEZ+ALIAGA.pdf?MOD=AJPERES&CACHEID=62f8a3004137128aaf6cbf1666a80600",
+
                     )
                 ),
 
@@ -78,9 +81,10 @@ object DecidePeruRepository {
                     )
                 ),
                 financiamiento = Financiamiento(
-                    montoDeclared = "S/ 15,000,000",
+                    montoDeclared = "S/ 986,398",
                     fuentesPrincipales = listOf("Aportes propios", "Donaciones empresariales"),
-                    transparencia = "Media"
+                    transparencia = "Media",
+                    fuenteUrl = "https://www.infobae.com/america/peru/2022/09/21/elecciones-2022-gastos-de-campana-de-daniel-urresti-y-rafael-lopez-aliaga-superan-los-s720000/#:~:text=Otro%20aportante%20de%20la%20campa%C3%B1a,videos%20y%20programas%20de%20televisi%C3%B3n"
                 ),
 
             ),
@@ -95,6 +99,8 @@ object DecidePeruRepository {
                 biografia = "Administradora y política peruana. Es líder del partido Fuerza Popular y ha sido tres veces candidata presidencial llegando a la segunda vuelta en todas las ocasiones. Es la hija mayor del expresidente Alberto Fujimori, y fue Primera Dama del Perú de 1994 a 2000.",
                 region = "Lima",
                 fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/keiko-sofia-fujimori-higuchi_historial-partidario_Q43AyhFWlVg=3h",
+                fuentePropuestasUrl = "https://apisije-e.jne.gob.pe/TRAMITE/ESCRITO/1095/ARCHIVO/FIRMADO/3017.PDF",
+                fuenteHistorialUrl = "https://es.wikipedia.org/wiki/Keiko_Fujimori",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
@@ -154,13 +160,14 @@ object DecidePeruRepository {
                 ),
 
                 financiamiento = Financiamiento(
-                    montoDeclared = "Aproximadamente 5 millones de dólares (No declarado)",
+                    montoDeclared = "S/ 5,000,000",
                     fuentesPrincipales = listOf(
-                        "Odebrecht (1.2 millones USD)",
-                        "Credicorp (3.65 millones USD, Dionisio Romero Paoletti)",
-                        "Grupo Gloria (200 mil USD, Vito Rodríguez Rodríguez)"
+                        "Bancada de Fuerza Popular",
+                        "Empresarios",
+                        "Donaciones Individuales "
                     ),
-                    transparencia = "Baja"
+                    transparencia = "Baja",
+                    fuenteUrl = "https://elcomercio.pe/politica/keiko-fujimori-el-75-de-los-aportes-registrados-por-fuerza-popular-estan-relacionados-a-las-impugnaciones-a-resultados-electorales-elecciones-2021-onpe-jne-ec-data-noticia/#:~:text=Reporte%20financiero%20Monto%20Aportes%20en,883"
                 ),
 
 
@@ -176,25 +183,20 @@ object DecidePeruRepository {
                 biografia = "Empresario peruano, hermano del expresidente Martín Vizcarra. Es integrante del partido Perú Primero y ha sido un colaborador clave en las campañas políticas de su hermano. Su candidatura a la presidencia en 2026 es especulativa. Actualmente enfrenta una investigación fiscal por presuntos delitos de colusión y peculado.",
                 region = "Lima",
                 fuenteUrl = "https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026#Posibles_precandidaturas_presidenciales",
-
+                fuentePropuestasUrl = "",
+                fuenteHistorialUrl = "",
                 propuestas = listOf(
-                    Propuesta("Generales", "Pendiente de Publicación", "Aún no se han oficializado las propuestas detalladas de la candidatura.", "Baja")
+                    Propuesta("Generales", "Pendiente de Publicación", "Aún no se han oficializado las propuestas detalladas de la candidatura.", "Baja"),
                 ),
-                denuncias = listOf(
-                    Denuncia(
-                        tipo = "Colusión y Peculado",
-                        descripcion = "Investigación fiscal por presuntos delitos vinculados a contratos estatales de la empresa familiar C y M Vizcarra S.A.C.",
-                        año = 2024,
-                        estado = "En proceso",
-                        fuenteUrl = "https://investigacion.fuente.com"
-                    )
-                ),
+                denuncias = listOf(),
 
                 historial = listOf(),
                 financiamiento = Financiamiento(
-                    montoDeclared = "S/ 0 (Pendiente de declarar)",
+                    montoDeclared = "S/ 0",
                     fuentesPrincipales = listOf("No declaradas"),
-                    transparencia = "Baja"
+                    transparencia = "Baja",
+                    fuenteUrl = ""
+
                 ),
 
             ),
@@ -209,12 +211,14 @@ object DecidePeruRepository {
                 biografia = "Carlos Álvarez (Lima, 7 de enero de 1964) es un comediante y presentador peruano conocido por sus imitaciones políticas. En 2024 se unió al partido País para Todos y en 2025 anunció su interés en postular a la presidencia en las elecciones de 2026.",
                 region = "Lima",
                 fuenteUrl = "https://infogob.jne.gob.pe/Politico/FichaPolitico/carlos-gonsalo-alvarez-loayza_historial-partidario_xTU3PM2fFr4=UM",
+                fuentePropuestasUrl = "https://caretas.pe/home_web/home_principal_secundario/carlos-alvarez-propone-un-gobierno-sin-etiquetas-ni-izquierda-ni-derecha-solo-sentido-comun/",
+                fuenteHistorialUrl = "",
                 propuestas = listOf(
                     Propuesta(
                         categoria = "Seguridad Ciudadana",
                         titulo = "Implementar la pena de muerte para sicarios y criminales violentos",
                         descripcion = "Propone aplicar la pena de muerte como medida extrema contra la delincuencia y el sicariato, argumentando que el Estado debe proteger a los ciudadanos de criminales irrecuperables.",
-                        prioridad = "Alta"
+                        prioridad = "Alta",
                     ),
                     Propuesta(
                         categoria = "Relaciones Internacionales",
@@ -258,15 +262,18 @@ object DecidePeruRepository {
                         titulo = "Modelo de seguridad inspirado en El Salvador",
                         descripcion = "Propone un sistema de seguridad similar al modelo salvadoreño, con firmeza frente al crimen, pero respetando los derechos humanos.",
                         prioridad = "Alta"
-                    )
+                    ),
+
                 ),
 
                 denuncias = listOf(),
                 historial = listOf(),
                 financiamiento = Financiamiento(
-                    montoDeclared = "S/ 0 (Pendiente de declarar)",
+                    montoDeclared = "S/ 0",
                     fuentesPrincipales = listOf("No declaradas"),
-                    transparencia = "Baja"
+                    transparencia = "Baja",
+                    fuenteUrl = ""
+
                 ),
 
             ),
