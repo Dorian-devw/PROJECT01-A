@@ -2,24 +2,55 @@ package com.proyecto.project01_a.data.repository
 
 import com.proyecto.project01_a.data.local.dao.DenunciaDao
 import com.proyecto.project01_a.data.local.entities.Denuncia
+import com.proyecto.project01_a.domain.model.DenunciaModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-class DenunciaRepository(private val denunciaDao: DenunciaDao) {
+class DenunciaRepository(
+    private val denunciaDao: DenunciaDao
+) {
 
-    fun getAllDenuncias(): Flow<List<Denuncia>> = denunciaDao.getAllDenuncias()
+    // Obtener todas las denuncias de un candidato
+    fun getDenunciasByCandidato(candidatoId: Int): Flow<List<DenunciaModel>> =
+        denunciaDao.getDenunciasByCandidato(candidatoId).map { list ->
+            list.map { it.toDomain() }
+        }
 
-    fun getDenunciasByCandidato(candidatoId: Int): Flow<List<Denuncia>> =
-        denunciaDao.getDenunciasByCandidato(candidatoId)
+    // Insertar una denuncia
+    suspend fun insertDenuncia(candidatoId: Int, denuncia: DenunciaModel): Long =
+        denunciaDao.insert(denuncia.toEntity(candidatoId))
 
-    suspend fun getDenunciaById(id: Int): Denuncia? = denunciaDao.getDenunciaById(id)
+    // Insertar varias denuncias
+    suspend fun insertAllDenuncias(candidatoId: Int, denuncias: List<DenunciaModel>) =
+        denunciaDao.insertAll(denuncias.map { it.toEntity(candidatoId) })
 
-    suspend fun insert(denuncia: Denuncia): Long = denunciaDao.insert(denuncia)
+    // Actualizar denuncia
+    suspend fun updateDenuncia(candidatoId: Int, denuncia: DenunciaModel) =
+        denunciaDao.update(denuncia.toEntity(candidatoId))
 
-    suspend fun insertAll(denuncias: List<Denuncia>) = denunciaDao.insertAll(denuncias)
+    // Eliminar denuncia
+    suspend fun deleteDenuncia(candidatoId: Int, denuncia: DenunciaModel) =
+        denunciaDao.delete(denuncia.toEntity(candidatoId))
 
-    suspend fun update(denuncia: Denuncia) = denunciaDao.update(denuncia)
+    // Eliminar todas las denuncias
+    suspend fun deleteAllDenuncias() = denunciaDao.deleteAll()
 
-    suspend fun delete(denuncia: Denuncia) = denunciaDao.delete(denuncia)
+    // ===== MAPPERS =====
+    private fun Denuncia.toDomain() = DenunciaModel(
+        tipo = tipo,
+        descripcion = descripcion,
+        año = año,
+        estado = estado,
+        fuenteUrl = fuenteUrl
+    )
 
-    suspend fun deleteAll() = denunciaDao.deleteAll()
+    private fun DenunciaModel.toEntity(candidatoId: Int) = Denuncia(
+        id = 0, // autogenerado
+        candidatoId = candidatoId,
+        tipo = tipo,
+        descripcion = descripcion,
+        año = año,
+        estado = estado,
+        fuenteUrl = fuenteUrl
+    )
 }

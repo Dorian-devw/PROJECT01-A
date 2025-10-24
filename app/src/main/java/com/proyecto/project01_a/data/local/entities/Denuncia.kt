@@ -6,12 +6,14 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "denuncias",
-    foreignKeys = [ForeignKey(
-        entity = Candidato::class,
-        parentColumns = ["id"],
-        childColumns = ["candidatoId"],
-        onDelete = ForeignKey.CASCADE
-    )]
+    foreignKeys = [
+        ForeignKey(
+            entity = Candidato::class,
+            parentColumns = ["id"],
+            childColumns = ["candidatoId"],
+            onDelete = ForeignKey.CASCADE
+        )
+    ]
 )
 data class Denuncia(
     @PrimaryKey(autoGenerate = true)

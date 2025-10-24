@@ -20,9 +20,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.proyecto.project01_a.data.local.Candidato
+import com.proyecto.project01_a.domain.model.CandidatoModel
 import com.proyecto.project01_a.data.local.CandidatoCongreso
 import com.proyecto.project01_a.data.local.Noticia
 import com.proyecto.project01_a.data.local.Partido
+import com.proyecto.project01_a.domain.model.CandidatoCongresoModel
+import com.proyecto.project01_a.domain.model.NoticiaModel
+import com.proyecto.project01_a.domain.model.PartidoModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,7 +62,7 @@ fun TopBar(
 
 @Composable
 fun CardCandidato(
-    candidato: Candidato,
+    candidato: CandidatoModel,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -102,7 +106,7 @@ fun CardCandidato(
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = candidato.partido,
+                    text = "${candidato.partido}",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.primary
                 )
@@ -127,7 +131,7 @@ fun CardCandidato(
 
 @Composable
 fun CardCandidatoCongreso(
-    candidato: CandidatoCongreso,
+    candidato: CandidatoCongresoModel,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -190,7 +194,7 @@ fun CardCandidatoCongreso(
                 Spacer(modifier = Modifier.height(2.dp))
 
                 Text(
-                    text = candidato.partido,
+                    text = "${candidato.partido}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -207,7 +211,7 @@ fun CardCandidatoCongreso(
 
 @Composable
 fun CardPartido(
-    partido: Partido,
+    partido: PartidoModel,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -273,7 +277,7 @@ fun CardPartido(
 
 @Composable
 fun CardNoticia(
-    noticia: Noticia,
+    noticia: NoticiaModel,
     modifier: Modifier = Modifier
 ) {
     Card(

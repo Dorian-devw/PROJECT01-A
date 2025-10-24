@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
             entity = Partido::class,
             parentColumns = ["id"],
             childColumns = ["partidoId"],
-            onDelete = ForeignKey.CASCADE // si se elimina el partido, se eliminan sus candidatos
+            onDelete = ForeignKey.CASCADE
         )
     ]
 )

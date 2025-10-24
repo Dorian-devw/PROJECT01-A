@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "propuestas",
+    tableName = "redes_sociales",
     foreignKeys = [
         ForeignKey(
             entity = Candidato::class,
@@ -15,12 +15,12 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Propuesta(
+data class RedesSociales(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val candidatoId: Int,
-    val categoria: String,
-    val titulo: String,
-    val descripcion: String,
-    val prioridad: String
+    val facebook: String?,
+    val twitter: String?,
+    val instagram: String?,
+    val webOficial: String?
 )

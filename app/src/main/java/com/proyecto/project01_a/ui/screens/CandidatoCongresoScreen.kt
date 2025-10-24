@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.proyecto.project01_a.data.local.dao.CandidatoCongresoDao
+import com.proyecto.project01_a.data.repository.CandidatoCongresoRepository
 import com.proyecto.project01_a.data.repository.DecidePeruRepository
 import com.proyecto.project01_a.ui.components.CardCandidatoCongreso
 import com.proyecto.project01_a.ui.components.SectionTitle
@@ -22,9 +24,11 @@ import com.proyecto.project01_a.ui.components.TopBar
 @Composable
 fun CandidatoCongresoScreen(
     onNavigateBack: () -> Unit,
-    onNavigateToDetail: (String) -> Unit
+    onNavigateToDetail: (String) -> Unit,
+    candidatoCongresoDao: CandidatoCongresoDao
 ) {
-    val candidatos = DecidePeruRepository.getCandidatosCongreso()
+    val repository = remember { CandidatoCongresoRepository(candidatoCongresoDao) }
+    val candidatos by repository.getAllCandidatosCongreso().collectAsState(initial = emptyList())
     var selectedRegion by remember { mutableStateOf("Todos") }
     val regiones = listOf("Todos", "Lima", "Cusco", "Arequipa", "La Libertad", "Piura")
 
@@ -129,7 +133,7 @@ fun CandidatoCongresoScreen(
             items(filteredCandidatos) { candidato ->
                 CardCandidatoCongreso(
                     candidato = candidato,
-                    onClick = { onNavigateToDetail(candidato.id) }
+                    onClick = { onNavigateToDetail(candidato.id.toString()) }
                 )
             }
 

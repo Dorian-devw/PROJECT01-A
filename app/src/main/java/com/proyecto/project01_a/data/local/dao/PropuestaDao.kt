@@ -7,12 +7,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PropuestaDao {
 
-    @Query("SELECT * FROM propuestas ORDER BY prioridad DESC")
-    fun getAllPropuestas(): Flow<List<Propuesta>>
-
-    @Query("SELECT * FROM propuestas WHERE id = :id")
-    suspend fun getPropuestaById(id: Int): Propuesta?
-
     @Query("SELECT * FROM propuestas WHERE candidatoId = :candidatoId")
     fun getPropuestasByCandidato(candidatoId: Int): Flow<List<Propuesta>>
 

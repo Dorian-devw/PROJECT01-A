@@ -5,22 +5,21 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "propuestas",
+    tableName = "candidatos_destacados",
     foreignKeys = [
         ForeignKey(
-            entity = Candidato::class,
+            entity = Partido::class,
             parentColumns = ["id"],
-            childColumns = ["candidatoId"],
+            childColumns = ["partidoId"],
             onDelete = ForeignKey.CASCADE
         )
     ]
 )
-data class Propuesta(
+data class CandidatoDestacado(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val candidatoId: Int,
-    val categoria: String,
-    val titulo: String,
-    val descripcion: String,
-    val prioridad: String
+    val nombre: String,
+    val partidoId: Int,
+    val imagenResId: Int,
+    val porcentaje: String
 )

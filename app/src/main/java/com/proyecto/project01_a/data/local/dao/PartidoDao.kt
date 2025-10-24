@@ -12,6 +12,8 @@ interface PartidoDao {
 
     @Query("SELECT * FROM partidos WHERE id = :id")
     suspend fun getPartidoById(id: Int): Partido?
+    @Query("SELECT * FROM partidos WHERE id = :id")
+    fun getPartidoByIdFlow(id: Int): Flow<Partido?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(partido: Partido): Long

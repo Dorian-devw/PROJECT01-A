@@ -23,13 +23,18 @@ import com.proyecto.project01_a.ui.components.InfoChip
 import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.proyecto.project01_a.data.local.dao.CandidatoCongresoDao
+import com.proyecto.project01_a.data.repository.CandidatoCongresoRepository
+
 @Composable
 fun CandidatoDetailScreen(
     candidatoId: String,
     onNavigateBack: () -> Unit,
-    onNavigateToPartido: (String) -> Unit
+    onNavigateToPartido: (String) -> Unit,
+    repository: CandidatoCongresoRepository
 ) {
-    val candidato = DecidePeruRepository.getCandidatoById(candidatoId)
+    val candidato by repository.getCandidatoCongresoById(candidatoId.toInt())
+        .collectAsState(initial = null)
     var selectedTab by remember { mutableStateOf(0) }
     val tabs = listOf("Propuestas", "Historial", "Denuncias", "Financiamiento")
 

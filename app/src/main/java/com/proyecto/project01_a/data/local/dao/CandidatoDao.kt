@@ -2,26 +2,25 @@ package com.proyecto.project01_a.data.local.dao
 
 import androidx.room.*
 import com.proyecto.project01_a.data.local.entities.Candidato
+import com.proyecto.project01_a.data.local.relations.CandidatoRelations
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CandidatoDao {
+
+    @Transaction
+    @Query("SELECT * FROM candidatos ORDER BY nombre ASC")
+    fun getAllCandidatosRelations(): Flow<List<CandidatoRelations>>
+
+    @Transaction
+    @Query("SELECT * FROM candidatos WHERE id = :id")
+    fun getCandidatoRelationsById(id: Int): Flow<CandidatoRelations>
 
     @Query("SELECT * FROM candidatos ORDER BY nombre ASC")
     fun getAllCandidatos(): Flow<List<Candidato>>
 
     @Query("SELECT * FROM candidatos WHERE id = :id")
     suspend fun getCandidatoById(id: Int): Candidato?
-
-    @Query("""
-        SELECT * FROM candidatos 
-        WHERE nombre LIKE '%' || :query || '%' 
-        OR profesion LIKE '%' || :query || '%'
-    """)
-    fun searchCandidatos(query: String): Flow<List<Candidato>>
-
-    @Query("SELECT * FROM candidatos WHERE partidoId = :partidoId")
-    fun getCandidatosByPartido(partidoId: Int): Flow<List<Candidato>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(candidato: Candidato): Long
