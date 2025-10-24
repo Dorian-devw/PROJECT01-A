@@ -16,12 +16,10 @@ fun EducacionDetailScreen(
     educacionId: String,
     onNavigateBack: () -> Unit
 ) {
-    // 1. Obtener el contenido del repositorio
     val contenido = DecidePeruRepository.getContenidoEducativoDetail(educacionId)
 
     Scaffold(
         topBar = {
-            // El título de la TopBar puede ser el título del contenido o un fallback
             TopBar(
                 title = contenido?.titulo ?: "Detalle Educativo",
                 onNavigateBack = onNavigateBack
@@ -36,7 +34,6 @@ fun EducacionDetailScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // Título y Categoría (redundante, pero estético)
                 item {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Text(
@@ -61,7 +58,6 @@ fun EducacionDetailScreen(
                     }
                 }
 
-                // Contenido Principal (Texto largo)
                 item {
                     Text(
                         text = contenido.contenido,
@@ -72,7 +68,6 @@ fun EducacionDetailScreen(
 
             }
         } else {
-            // Manejo de error o contenido no encontrado
             Box(
                 modifier = Modifier
                     .fillMaxSize()

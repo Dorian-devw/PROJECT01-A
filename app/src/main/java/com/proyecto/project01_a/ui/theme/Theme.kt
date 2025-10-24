@@ -6,7 +6,6 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Colores definidos arriba
 val PrimaryBlue = Color(0xFF0097D0)
 val SecondaryBlue = Color(0xFF137FDD)
 val DarkerBlue = Color(0xFF00679D)
@@ -18,14 +17,12 @@ val TextPrimary = Color(0xFF212121)
 val TextSecondary = Color(0xFF757575)
 
 private val LightColorScheme = lightColorScheme(
-    // Colores Primarios (Azul)
-    primary = PrimaryBlue,          // Azul fuerte para botones principales, iconos, etc.
-    onPrimary = PeruWhite,          // Texto blanco sobre el azul primario
-    primaryContainer = LighterBlue, // Fondo celeste claro para tarjetas o chips de acento
-    onPrimaryContainer = DarkerBlue, // Texto oscuro sobre el container claro
+    primary = PrimaryBlue,
+    onPrimary = PeruWhite,
+    primaryContainer = LighterBlue,
+    onPrimaryContainer = DarkerBlue,
 
-    // Colores Secundarios (Un acento o el DarkGray si lo prefieres)
-    secondary = SecondaryBlue,       // Azul similar para acentos visuales secundarios
+    secondary = SecondaryBlue,
     onSecondary = PeruWhite,
 
     // Colores de Superficie y Fondo (Se mantienen)
@@ -45,14 +42,12 @@ private val DarkColorScheme = darkColorScheme(
     // Colores Primarios (Azul)
     primary = PrimaryBlue,
     onPrimary = PeruWhite,
-    primaryContainer = DarkerBlue,   // Contenedor primario es un azul más oscuro
+    primaryContainer = DarkerBlue,
     onPrimaryContainer = PeruWhite,
 
-    // Colores Secundarios (Acento)
     secondary = SecondaryBlue,
     onSecondary = PeruWhite,
 
-    // Colores de Superficie y Fondo (Oscuros)
     background = Color(0xFF121212),
     onBackground = Color(0xFFE0E0E0),
     surface = Color(0xFF1E1E1E),
@@ -60,7 +55,6 @@ private val DarkColorScheme = darkColorScheme(
     surfaceVariant = Color(0xFF2C2C2C),
     onSurfaceVariant = Color(0xFFBDBDBD),
 
-    // Error se mantiene
     error = Color(0xFFCF6679),
     onError = Color(0xFF000000)
 )
@@ -74,7 +68,7 @@ fun Project01ATheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography, // Asegúrate de que Typography esté definido en Types.kt
+        typography = Typography,
         content = content
     )
 }

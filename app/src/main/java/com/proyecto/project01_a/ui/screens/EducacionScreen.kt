@@ -27,7 +27,6 @@ fun EducacionScreen(
     onNavigateBack: () -> Unit,
     onNavigateToDetail: (String) -> Unit
 ) {
-    // Nota: Necesitarás implementar getContenidoEducativo() en el repositorio
     val contenidos = DecidePeruRepository.getContenidoEducativo()
     val categorias = contenidos.groupBy { it.categoria }
 
@@ -165,7 +164,6 @@ fun ContenidoEducativoCard(
                 .padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // 1. Contenedor del Ícono
             Box(
                 modifier = Modifier
                     .size(56.dp)
@@ -189,7 +187,6 @@ fun ContenidoEducativoCard(
                 )
             }
 
-            // 2. Columna de Texto
             Spacer(modifier = Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
@@ -209,7 +206,6 @@ fun ContenidoEducativoCard(
                 )
             }
 
-            // 3. Ícono de Navegación
             Spacer(modifier = Modifier.width(16.dp))
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
@@ -217,6 +213,6 @@ fun ContenidoEducativoCard(
                 tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
                 modifier = Modifier.size(16.dp)
             )
-        } // Fin de Row
-    } // Fin de Card
-} // Fin de ContenidoEducativoCard
+        }
+    }
+}

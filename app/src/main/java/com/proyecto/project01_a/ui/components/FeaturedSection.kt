@@ -39,13 +39,12 @@ fun FeaturedSection(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Según IPSOS", // Subtítulo/Fuente
+                    text = "Según IPSOS",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
-            // ENLACE "VER COMPLETO"
             Row(
                 modifier = Modifier
                     .clickable { onViewFullSourceClick(sourceUrl) },

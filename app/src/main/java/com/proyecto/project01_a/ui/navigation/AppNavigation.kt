@@ -8,16 +8,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.proyecto.project01_a.ui.screens.*
 
-// ***************************************************************
-// 1. CLASE SEALED 'Screen' CORREGIDA (SE AÑADE COMPARACION)
-// ***************************************************************
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object Home : Screen("home")
     object CandidatosList : Screen("candidatos_list")
     object PartidosList : Screen("partidos_list")
 
-    // RUTAS CON ARGUMENTOS
     object CandidatoDetail : Screen("candidato/{candidatoId}") {
         fun createRoute(candidatoId: String) = "candidato/$candidatoId"
     }
@@ -36,16 +32,12 @@ sealed class Screen(val route: String) {
 
     // RF22: NUEVA RUTA PARA LA PANTALLA DE COMPARACIÓN
     object Comparacion : Screen("comparacion/{candidatoIds}") {
-        /**
-         * Crea la ruta con los IDs de los candidatos separados por coma.
-         */
+
         fun createRoute(candidatoIds: List<String>) = "comparacion/${candidatoIds.joinToString(",")}"
     }
 }
 
-// ***************************************************************
-// 2. NAVHOST CORREGIDO
-// ***************************************************************
+
 
 @Composable
 fun AppNavigation() {
@@ -88,11 +80,9 @@ fun AppNavigation() {
             )
         }
 
-        // ************************************************
-        // RUTAS DE CANDIDATOS LISTA Y COMPARACIÓN (RF22)
-        // ************************************************
+       //COMPARACION
 
-        composable(Screen.CandidatosList.route) { // CandidatosList no lleva argumentos
+        composable(Screen.CandidatosList.route) {
             CandidatosListScreen(
                 onNavigateToCandidatoDetail = { candidatoId ->
                     navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
@@ -105,7 +95,7 @@ fun AppNavigation() {
             )
         }
 
-        composable( // Nueva ruta para la pantalla de comparación
+        composable(
             route = Screen.Comparacion.route,
             arguments = listOf(navArgument("candidatoIds") { type = NavType.StringType })
         ) { backStackEntry ->
@@ -119,9 +109,6 @@ fun AppNavigation() {
             )
         }
 
-        // ************************************************
-        // RESTO DE LAS RUTAS
-        // ************************************************
 
         composable(
             route = Screen.CandidatoDetail.route,
@@ -185,7 +172,7 @@ fun AppNavigation() {
 
         composable(Screen.PartidosList.route) {
             PartidosListScreen(
-                // onNavigateBack = { navController.popBackStack() } // si la creas
+                // onNavigateBack = { navController.popBackStack() }
             )
         }
 

@@ -439,7 +439,6 @@ fun HistorialCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // Fila principal con ícono y detalles
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -546,7 +545,6 @@ fun DenunciaCard(denuncia: Denuncia) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // --- Fila Superior (Tipo y Año) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -609,7 +607,6 @@ fun DenunciaCard(denuncia: Denuncia) {
                     )
                 }
 
-                // 2. Botón de Fuente (Row alineado a la derecha)
                 Row(
                     modifier = Modifier
                         .clickable { uriHandler.openUri(denuncia.fuenteUrl) }

@@ -63,10 +63,9 @@ fun CardCandidato(
     candidato: Candidato,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    isSelected: Boolean = false, // Indica si está seleccionado
-    isSelectionMode: Boolean = false // Indica si estamos en el modo de selección
+    isSelected: Boolean = false,
+    isSelectionMode: Boolean = false
 ) {
-    // Color de fondo condicional para indicar que la tarjeta ha sido seleccionada
     val containerColor = if (isSelected) {
         MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)
     } else {
@@ -74,12 +73,10 @@ fun CardCandidato(
     }
 
     Card(
-        // Usamos el parámetro onClick nativo de la Card (Material3)
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
             .border(
-                // Borde visible solo si está seleccionado
                 width = if (isSelected) 2.dp else 0.dp,
                 color = if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
                 shape = RoundedCornerShape(16.dp)
@@ -87,7 +84,7 @@ fun CardCandidato(
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = containerColor // Aplicación del color condicional
+            containerColor = containerColor
         )
     ) {
         Row(
@@ -134,18 +131,15 @@ fun CardCandidato(
                 )
             }
 
-            // Lógica CONDICIONAL del ícono al final
             if (isSelectionMode) {
-                // Muestra un Checkbox que refleja el estado de selección
                 Checkbox(
                     checked = isSelected,
-                    onCheckedChange = null, // La lógica de cambio la maneja el onClick de la Card padre
+                    onCheckedChange = null,
                     colors = CheckboxDefaults.colors(
                         checkedColor = MaterialTheme.colorScheme.primary
                     )
                 )
             } else {
-                // Muestra la flecha de navegación en modo normal
                 Icon(
                     imageVector = Icons.Default.ChevronRight,
                     contentDescription = "Ver más",

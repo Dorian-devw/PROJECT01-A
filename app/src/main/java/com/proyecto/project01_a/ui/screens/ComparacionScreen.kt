@@ -31,7 +31,6 @@ fun ComparacionScreen(
     candidatoIds: List<String>,
     onNavigateBack: () -> Unit
 ) {
-    // 1. Recuperación de Datos
     val candidatosAComparar = candidatoIds.mapNotNull { id ->
         DecidePeruRepository.getCandidatoById(id)
     }.take(3)
@@ -71,7 +70,6 @@ fun ComparacionScreen(
                 .padding(paddingValues)
         ) {
 
-            // ENCABEZADO CON TARJETAS DE CANDIDATOS
             item {
                 Row(
                     modifier = Modifier
@@ -93,7 +91,6 @@ fun ComparacionScreen(
                 }
             }
 
-            // SECCIÓN 1: DATOS BÁSICOS
             stickyHeader {
                 ComparisonSectionHeader("📋 Datos Básicos")
             }
@@ -105,7 +102,6 @@ fun ComparacionScreen(
                 }
             }
 
-            // SECCIÓN 2: INTEGRIDAD Y ANTECEDENTES
             stickyHeader {
                 ComparisonSectionHeader("⚖️ Integridad y Antecedentes")
             }
@@ -125,7 +121,6 @@ fun ComparacionScreen(
                 }
             }
 
-            // SECCIÓN 3: EXPERIENCIA Y CARGOS
             stickyHeader {
                 ComparisonSectionHeader("💼 Experiencia Pública")
             }
@@ -139,7 +134,6 @@ fun ComparacionScreen(
                 }
             }
 
-            // SECCIÓN 4: PROPUESTAS
             stickyHeader {
                 ComparisonSectionHeader("🎯 Propuestas Prioritarias")
             }
@@ -158,7 +152,6 @@ fun ComparacionScreen(
     }
 }
 
-// COMPONENTES REUTILIZABLES
 
 @Composable
 fun ComparisonSectionHeader(title: String) {

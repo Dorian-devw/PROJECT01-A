@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.proyecto.project01_a.data.model.Partido
-import com.proyecto.project01_a.data.repository.DecidePeruRepository // Importación
+import com.proyecto.project01_a.data.repository.DecidePeruRepository
 import com.proyecto.project01_a.ui.components.SectionTitle
 import com.proyecto.project01_a.ui.components.TopBar
 
@@ -30,7 +30,6 @@ fun PartidoDetailScreen(
     partidoId: String,
     onNavigateBack: () -> Unit
 ) {
-    // LLAMADA CORREGIDA: Usando getPartidoById()
     val partido = DecidePeruRepository.getPartidoById(partidoId)
 
     Scaffold(
@@ -49,13 +48,11 @@ fun PartidoDetailScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(20.dp)
             ) {
-                // 1. Cabecera del Partido (Logo, Nombre completo)
                 item {
                     PartidoHeader(partido = partido)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
-                // 2. Descripción General
                 item {
                     SectionTitle(
                         title = "Descripción y Fundamentos",
@@ -68,7 +65,6 @@ fun PartidoDetailScreen(
                     )
                 }
 
-                // 3. Detalles Clave (Ideología y Fundación)
                 item {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -87,7 +83,6 @@ fun PartidoDetailScreen(
                     }
                 }
 
-                // 4. Liderazgo
                 item {
                     SectionTitle(
                         title = "Liderazgo",
@@ -101,7 +96,6 @@ fun PartidoDetailScreen(
                     Spacer(modifier = Modifier.height(10.dp))
                 }
 
-                // 5. Miembros Destacados
                 item {
                     SectionTitle(
                         title = "Miembros Destacados",
@@ -116,7 +110,6 @@ fun PartidoDetailScreen(
                     )
                 }
 
-                // 6. Propuestas Generales
                 item {
                     SectionTitle(
                         title = "Propuestas Clave",
@@ -132,7 +125,6 @@ fun PartidoDetailScreen(
                     )
                 }
 
-                // 7. Enlace Web
                 partido.webOficial?.let { web ->
                     item {
                         DetailRow(
@@ -144,7 +136,6 @@ fun PartidoDetailScreen(
                 }
             }
         } else {
-            // Manejo de error para Partido no encontrado
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -162,7 +153,6 @@ fun PartidoDetailScreen(
 }
 
 
-// AÑADO COMPONENTES FALTANTES para que el archivo sea autónomo y compile.
 
 @Composable
 fun PartidoHeader(partido: Partido) {
@@ -170,7 +160,6 @@ fun PartidoHeader(partido: Partido) {
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Logo del Partido (usando Coil para cargar la URL)
         Image(
             painter = rememberAsyncImagePainter(partido.logoUrl),
             contentDescription = "Logo de ${partido.nombreCorto}",

@@ -36,7 +36,6 @@ fun String.normalizeAndLowercase(): String {
     return normalized.replace("[\\p{Mn}]".toRegex(), "").lowercase()
 }
 
-// ESTADOS Y MODELOS
 data class FilterState(
     val partido: String? = null,
     val region: String? = null,
@@ -61,7 +60,6 @@ fun CandidatosListScreen(
 
     val todosLosCandidatos = remember { DecidePeruRepository.getCandidatosPresidenciales() }
 
-    // Lógica de Filtrado
     val candidatosFiltrados = remember(searchText, currentFilters) {
         todosLosCandidatos.filter { candidato ->
             val queryNormalized = searchText.normalizeAndLowercase()
@@ -85,11 +83,9 @@ fun CandidatosListScreen(
 
     Scaffold(
         topBar = {
-            // 1. Usar CenterAlignedTopAppBar para centrar automáticamente el título
             CenterAlignedTopAppBar(
                 title = {
-                    // 2. Usar un Box con fillMaxWidth para forzar que el contenido del título
-                    // ocupe todo el espacio central disponible y así Column se centre dentro.
+
                     Box(
                         modifier = Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
@@ -149,7 +145,6 @@ fun CandidatosListScreen(
                 .padding(paddingValues)
         ) {
 
-            // BARRA DE BÚSQUEDA Y ACCIONES
             Surface(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -159,7 +154,6 @@ fun CandidatosListScreen(
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
-                    // CAMPO DE BÚSQUEDA
                     OutlinedTextField(
                         value = searchText,
                         onValueChange = { searchText = it },
@@ -200,7 +194,6 @@ fun CandidatosListScreen(
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    // BOTONES DE ACCIÓN
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -237,7 +230,6 @@ fun CandidatosListScreen(
                             modifier = Modifier.weight(1f)
                         )
 
-                        // BOTÓN FILTROS
                         FilterChip(
                             selected = currentFilters != FilterState(),
                             onClick = { isFilterDialogOpen = true },
@@ -267,7 +259,6 @@ fun CandidatosListScreen(
                         )
                     }
 
-                    // BANNER INFORMATIVO EN MODO COMPARAR
                     AnimatedVisibility(
                         visible = isCompareMode,
                         enter = fadeIn() + expandVertically(),
@@ -302,7 +293,6 @@ fun CandidatosListScreen(
                 }
             }
 
-            // DIÁLOGO DE FILTROS
             if (isFilterDialogOpen) {
                 AlertDialog(
                     onDismissRequest = { isFilterDialogOpen = false },
@@ -346,9 +336,7 @@ fun CandidatosListScreen(
                 )
             }
 
-            // LISTA DE CANDIDATOS
             if (candidatosFiltrados.isEmpty()) {
-                // ESTADO VACÍO
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -382,7 +370,7 @@ fun CandidatosListScreen(
                         start = 16.dp,
                         end = 16.dp,
                         top = 12.dp,
-                        bottom = 96.dp // Espacio para el FAB
+                        bottom = 96.dp
                     ),
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {

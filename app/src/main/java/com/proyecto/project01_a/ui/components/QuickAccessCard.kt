@@ -33,18 +33,16 @@ fun QuickAccessCard(
             .background(backgroundColor)
             .clickable(onClick = onClick)
             .padding(12.dp)
-            .height(IntrinsicSize.Min), // Asegura que las tarjetas tengan la misma altura
-        horizontalAlignment = Alignment.CenterHorizontally // Centra el contenido horizontalmente
+            .height(IntrinsicSize.Min),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // --- ÍCONO CENTRADO ---
         Image(
             painter = painterResource(id = iconResId),
             contentDescription = null,
-            modifier = Modifier.size(80.dp) // Tamaño del ícono
+            modifier = Modifier.size(80.dp)
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        // --- TÍTULO (Negrita) ---
         Text(
             text = title,
             style = MaterialTheme.typography.titleMedium,
@@ -54,7 +52,6 @@ fun QuickAccessCard(
         )
         Spacer(modifier = Modifier.height(4.dp))
 
-        // --- DESCRIPCIÓN ---
         Text(
             text = description,
             style = MaterialTheme.typography.bodySmall,

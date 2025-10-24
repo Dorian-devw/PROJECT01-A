@@ -581,23 +581,21 @@ object DecidePeruRepository {
         return getContenidoEducativo().find { it.id == id }
     }
 
-    /*fun getCandidatoDetail(id: String): Candidato? {
-        return getCandidatosPresidenciales().find { it.id == id }
-    }*/
     fun getEncuestaFuenteUrl(): String {
         return "https://www.ipsos.com/es-pe/intencion-de-voto-septiembre-2025-ii-encuesta-america-tv-ipsos"
     }
-    fun getAllPeruDepartmentsForFilter(): List<String> {
-        // Retorna la lista de constantes, añadiendo "Todos" al inicio.
-        return listOf("Todos") + DecidePeruConstants.ALL_PERU_DEPARTMENTS.sorted()
-    }
-    fun getAllUniquePartidosForFilter(): List<String> {
+
+    /*fun getCandidatoDetail(id: String): Candidato? {
+        return getCandidatosPresidenciales().find { it.id == id }
+    }*/
+
+    /*fun getAllUniquePartidosForFilter(): List<String> {
         val uniquePartidos = getCandidatosPresidenciales()
             .map { it.partido }
             .distinct()
             .sorted()
         return listOf("Todos") + uniquePartidos
-    }
+    }*/
 
 }
 

@@ -34,8 +34,6 @@ import android.net.Uri
 import androidx.compose.ui.platform.LocalFocusManager
 
 
-
-
 val DecidePeruDarkBlue = Color(0xFF0097D0)
 val DecidePeruLightBlue = Color(0xFF137FDD)
 
@@ -56,7 +54,6 @@ fun HomeScreen(
         context.startActivity(intent)
     }
 
-    // Definición del TopAppBar Fijo
     val fixedTopBar = @Composable {
         CenterAlignedTopAppBar(
             title = {
@@ -173,7 +170,7 @@ fun HomeScreen(
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.height(16.dp)) // Padding final
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
@@ -182,14 +179,11 @@ fun HomeScreen(
 
 @Composable
 fun HeaderContent(
-    // 1. NUEVO PARÁMETRO: Handler de navegación
     onNavigateToCandidatosList: () -> Unit
 ) {
     var currentSlide by remember { mutableStateOf(0) }
     val totalSlides = 2
     val slideDuration = 7000L
-    // LocalFocusManager no es estrictamente necesario aquí si 'enabled=false',
-    // pero lo dejamos por si se necesita para otros fines.
     val focusManager = LocalFocusManager.current
 
     LaunchedEffect(key1 = Unit) {
@@ -205,44 +199,38 @@ fun HeaderContent(
             .background(DecidePeruDarkBlue)
     ) {
 
-        // 2. ENVOLVER EN UN BOX Y USAR CLICKABLE (Campo de Búsqueda)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 10.dp)
-                // 3. Modificador Clickable que ejecuta la navegación
                 .clickable {
                     onNavigateToCandidatosList()
                 }
         ) {
             OutlinedTextField(
-                // 4. DESHABILITAR LA ESCRITURA DIRECTA
                 value = "",
-                onValueChange = { /* No hace nada aquí */ },
-                enabled = false, // Deshabilita la interacción de escritura/foco
+                onValueChange = { /* nada */ },
+                enabled = false,
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = { Text("Buscar candidato....") },
                 leadingIcon = {
                     Icon(
                         contentDescription = "Buscar",
                         imageVector = Icons.Default.Search,
-                        // Usar Color.Black o un color de tema compatible con el fondo blanco
                         tint = Color.Black
                     )
                 },
                 colors = OutlinedTextFieldDefaults.colors(
                     disabledContainerColor = Color.White,
                     disabledBorderColor = Color.Transparent,
-                    disabledTextColor = Color.Black, // Color para el texto del placeholder
-                    disabledPlaceholderColor = Color.Gray // Color para el texto del placeholder
+                    disabledTextColor = Color.Black,
+                    disabledPlaceholderColor = Color.Gray
                 ),
                 shape = RoundedCornerShape(8.dp),
             )
         }
 
-
-        // Bloque del Slide/Carrusel
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -250,7 +238,6 @@ fun HeaderContent(
                 .background(DecidePeruLightBlue)
                 .padding(bottom = 24.dp)
         ) {
-            // **CONTENIDO RESTAURADO:** Aquí estaba el código que faltaba
             Column(modifier = Modifier.fillMaxWidth()) {
                 SlideContent(currentSlide = currentSlide)
 
@@ -277,8 +264,8 @@ fun HeaderContent(
                     }
                 }
             }
-        } // <--- Cierre del Box del Slide/Carrusel
-    } // <--- Cierre del Column principal
+        }
+    }
 }
 @Composable
 fun SlideContent(currentSlide: Int) {
