@@ -8,11 +8,16 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.proyecto.project01_a.ui.screens.*
 
+// ***************************************************************
+// 1. CLASE SEALED 'Screen' CORREGIDA (SE AÑADE COMPARACION)
+// ***************************************************************
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object Home : Screen("home")
     object CandidatosList : Screen("candidatos_list")
     object PartidosList : Screen("partidos_list")
+
+    // RUTAS CON ARGUMENTOS
     object CandidatoDetail : Screen("candidato/{candidatoId}") {
         fun createRoute(candidatoId: String) = "candidato/$candidatoId"
     }
@@ -28,7 +33,19 @@ sealed class Screen(val route: String) {
     object EducacionDetail : Screen("educacion/{educacionId}") {
         fun createRoute(educacionId: String) = "educacion/$educacionId"
     }
+
+    // RF22: NUEVA RUTA PARA LA PANTALLA DE COMPARACIÓN
+    object Comparacion : Screen("comparacion/{candidatoIds}") {
+        /**
+         * Crea la ruta con los IDs de los candidatos separados por coma.
+         */
+        fun createRoute(candidatoIds: List<String>) = "comparacion/${candidatoIds.joinToString(",")}"
+    }
 }
+
+// ***************************************************************
+// 2. NAVHOST CORREGIDO
+// ***************************************************************
 
 @Composable
 fun AppNavigation() {
@@ -53,16 +70,10 @@ fun AppNavigation() {
                 onNavigateToCandidatoDetail = { candidatoId ->
                     navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
                 },
-                // 2. NUEVO: Navegación a la Lista General de Candidatos
                 onNavigateToCandidatosList = {
-                    // Necesitas definir la ruta para la lista general de candidatos.
-                    // ASUMIMOS que crearás una nueva ruta: Screen.CandidatosList
                     navController.navigate(Screen.CandidatosList.route)
                 },
-                // 3. NUEVO: Navegación a Partidos Políticos
                 onNavigateToPartidos = {
-                    // Necesitas definir la ruta para la lista de partidos.
-                    // ASUMIMOS que crearás una nueva ruta: Screen.PartidosList
                     navController.navigate(Screen.PartidosList.route)
                 },
                 onNavigateToCongreso = {
@@ -76,6 +87,41 @@ fun AppNavigation() {
                 }
             )
         }
+
+        // ************************************************
+        // RUTAS DE CANDIDATOS LISTA Y COMPARACIÓN (RF22)
+        // ************************************************
+
+        composable(Screen.CandidatosList.route) { // CandidatosList no lleva argumentos
+            CandidatosListScreen(
+                onNavigateToCandidatoDetail = { candidatoId ->
+                    navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
+                },
+                // Handler para el modo de comparación
+                onNavigateToComparacion = { candidatoIds ->
+                    navController.navigate(Screen.Comparacion.createRoute(candidatoIds))
+                },
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        composable( // Nueva ruta para la pantalla de comparación
+            route = Screen.Comparacion.route,
+            arguments = listOf(navArgument("candidatoIds") { type = NavType.StringType })
+        ) { backStackEntry ->
+            // Extrae la cadena de IDs y la convierte en una lista
+            val idsString = backStackEntry.arguments?.getString("candidatoIds") ?: ""
+            val idsList = idsString.split(",").filter { it.isNotEmpty() }
+
+            ComparacionScreen(
+                candidatoIds = idsList,
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        // ************************************************
+        // RESTO DE LAS RUTAS
+        // ************************************************
 
         composable(
             route = Screen.CandidatoDetail.route,
@@ -134,14 +180,6 @@ fun AppNavigation() {
                 onNavigateToDetail = { educacionId ->
                     navController.navigate(Screen.EducacionDetail.createRoute(educacionId))
                 }
-            )
-        }
-        composable(Screen.CandidatosList.route) {
-            CandidatosListScreen(
-                onNavigateToCandidatoDetail = { candidatoId ->
-                    navController.navigate(Screen.CandidatoDetail.createRoute(candidatoId))
-                }
-                // Si tienes un TopBar, también necesitarás un onNavigateBack
             )
         }
 

@@ -20,7 +20,6 @@ import coil.compose.AsyncImage
 import com.proyecto.project01_a.data.model.*
 import com.proyecto.project01_a.data.repository.DecidePeruRepository
 import com.proyecto.project01_a.ui.components.TopBar
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.platform.LocalUriHandler
@@ -151,23 +150,20 @@ fun CandidatoDetailScreen(
     }
 }
 
-// --- Nuevo Componente de Cabecera (Header) ---
-// --- Nuevo Componente de Cabecera (Header) ---
+
 @Composable
 fun CandidatoHeader(
     candidato: Candidato,
     onNavigateToPartido: (String) -> Unit
 ) {
-    // Usamos rememberLauncherForActivityResult para manejar la apertura de URLs
     val context = LocalContext.current
-    val uriHandler = LocalUriHandler.current // Mejor práctica para abrir URLs en Compose
+    val uriHandler = LocalUriHandler.current
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(350.dp) // Mantenemos 350dp para un buen espacio
+            .height(350.dp)
             .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
     ) {
-        // 1. Imagen de Fondo
         AsyncImage(
             model = candidato.fotoUrl,
             contentDescription = candidato.nombre,
@@ -175,28 +171,22 @@ fun CandidatoHeader(
             contentScale = ContentScale.Crop
         )
 
-        // 2. Overlay de Sombra Suave (paleta de colores ajustada para un contraste más suave)
+
         Box(
             modifier = Modifier
                 .matchParentSize()
-                .background(Color.Black.copy(alpha = 0.35f)) // Ligeramente menos opaco para ser más "ligero"
+                .background(Color.Black.copy(alpha = 0.35f))
         )
 
-        // 3. Contenido Superpuesto (Nombre, Partido, Chips)
         Column(
-            // **CAMBIO CLAVE 1: Alineamos al centro y añadimos padding superior**
-            // Usamos Alignment.TopCenter y un espaciador o padding para empujar el contenido.
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.Center) // Alineamos al centro de la Box, luego usamos padding para ajustarlo
-                .padding(horizontal = 24.dp), // Padding a los lados
+                .align(Alignment.Center)
+                .padding(horizontal = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // **CAMBIO CLAVE 2: Espaciador superior para empujar el contenido hacia abajo (posición 40)**
-            // 350dp * 40% = 140dp. Usaremos un Spacer que lo empuje a esa posición.
-            Spacer(modifier = Modifier.height(150.dp)) // Espaciador para empezar el contenido más arriba que el centro.
+            Spacer(modifier = Modifier.height(150.dp))
 
-            // Nombre
             Text(
                 text = candidato.nombre,
                 style = MaterialTheme.typography.headlineLarge,
@@ -204,12 +194,10 @@ fun CandidatoHeader(
                 color = Color.White
             )
 
-            Spacer(modifier = Modifier.height(8.dp)) // Aumentado para mejor separación visual
+            Spacer(modifier = Modifier.height(8.dp))
 
-            // Partido (Botón/Chip de navegación)
             Surface(
                 shape = RoundedCornerShape(20.dp),
-                // **AJUSTE DE COLOR: Usamos el color principal para coherencia**
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.clickable { onNavigateToPartido(candidato.partido) }
             ) {
@@ -232,23 +220,20 @@ fun CandidatoHeader(
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp)) // Aumentado el espacio antes de los chips
+            Spacer(modifier = Modifier.height(24.dp))
 
-            // Chips de Edad y Profesión
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(IntrinsicSize.Max),
             horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                // Chip Edad
                 InfoChip(
                     label = "Edad",
                     value = "${candidato.edad} años",
                     modifier = Modifier.weight(1f)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
-                // Chip Profesión
                 InfoChip(
                     label = "Profesión",
                     value = candidato.profesion,
@@ -257,16 +242,14 @@ fun CandidatoHeader(
                 )
             }
 
-            // Espaciador para empujar el contenido arriba si no está centrado
             Spacer(modifier = Modifier.height(30.dp))
         }
-        // ** 4. NUEVA ADICIÓN: Botón de Fuente (Alineado en la esquina inferior izquierda) **
-        // Usamos Surface para el estilo de chip y lo alineamos a BottomStart
+
         Surface(
-            shape = RoundedCornerShape(bottomEnd = 10.dp), // Solo borde redondeado en la parte superior derecha
-            color = Color.White.copy(alpha = 0.8f), // Fondo semi-transparente para contrastar
+            shape = RoundedCornerShape(bottomEnd = 10.dp),
+            color = Color.White.copy(alpha = 0.8f),
             modifier = Modifier
-                .align(Alignment.TopEnd) // ALINEACIÓN CLAVE: Inferior Izquierda
+                .align(Alignment.TopEnd)
                 .clickable { uriHandler.openUri(candidato.fuenteUrl) }
         ) {
             Row(
@@ -274,9 +257,9 @@ fun CandidatoHeader(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    imageVector = Icons.Default.Link, // Ícono de enlace o fuente
+                    imageVector = Icons.Default.Link,
                     contentDescription = "Fuente",
-                    tint = MaterialTheme.colorScheme.primary, // Color del tema para destacar
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(16.dp)
                 )
                 Spacer(modifier = Modifier.width(6.dp))
@@ -288,27 +271,22 @@ fun CandidatoHeader(
                 )
             }
         }
-        // ********************************************************************************
 
     }
 }
 
-// --- Componente InfoChip (Definición Asumida y Mejorada para aceptar TextAlign) ---
-// --- Componente InfoChip (Definición Asumida y Mejorada para aceptar TextAlign) ---
 @Composable
 fun InfoChip(
     label: String,
     value: String,
     modifier: Modifier = Modifier,
-    textAlign: TextAlign? = null // Nuevo parámetro opcional para alineación del valor
+    textAlign: TextAlign? = null
 ) {
     Card(
-        // **CAMBIO CLAVE 3: Corregimos la altura mínima para evitar recortes.**
         modifier = modifier.heightIn(min = 5.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            // **AJUSTE DE COLOR: Usamos primary/secondary con baja opacidad para coherencia.**
-            containerColor = Color.Black.copy(alpha = 0.7f) // Fondo de chip más coherente
+            containerColor = Color.Black.copy(alpha = 0.7f)
         ),
         elevation = CardDefaults.cardElevation(0.dp)
     ) {
@@ -323,14 +301,12 @@ fun InfoChip(
             Text(
                 text = label,
                 style = MaterialTheme.typography.labelSmall,
-                // **AJUSTE DE COLOR: Texto secundario para el label, pero legible**
                 color = Color.White.copy(alpha = 0.8f),
                 fontWeight = FontWeight.Normal
             )
             Text(
                 text = value,
                 style = MaterialTheme.typography.titleSmall,
-                // **AJUSTE DE COLOR: Texto principal (blanco) para el valor**
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold,
                 textAlign = textAlign
@@ -342,7 +318,6 @@ fun InfoChip(
 @Composable
 fun PropuestaCard(
     propuesta: Propuesta,
-    // ¡NUEVO PARÁMETRO! Recibe la URL de la fuente desde el padre (Candidato)
     propuestasFuenteUrl: String
 ) {
     val uriHandler = LocalUriHandler.current
@@ -359,13 +334,11 @@ fun PropuestaCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // --- Fila Superior (Categoría y Prioridad) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Surface de Categoría
                 Surface(
                     shape = RoundedCornerShape(6.dp),
                     color = MaterialTheme.colorScheme.secondaryContainer
@@ -379,7 +352,6 @@ fun PropuestaCard(
                     )
                 }
 
-                // Surface de Prioridad
                 Surface(
                     shape = RoundedCornerShape(6.dp),
                     color = when (propuesta.prioridad) {
@@ -404,7 +376,6 @@ fun PropuestaCard(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Título y Descripción
             Text(
                 text = propuesta.titulo,
                 style = MaterialTheme.typography.titleMedium,
@@ -420,16 +391,14 @@ fun PropuestaCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            // --- NUEVA SECCIÓN: Botón de Fuente ---
             if (propuestasFuenteUrl.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Botón de Fuente
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable { uriHandler.openUri(propuestasFuenteUrl) }
-                        .padding(top = 4.dp), // Pequeño padding interno para el clic
+                        .padding(top = 4.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
@@ -454,7 +423,7 @@ fun PropuestaCard(
 @Composable
 fun HistorialCard(
     cargo: CargoAnterior,
-    historialFuenteUrl: String // NUEVO PARÁMETRO
+    historialFuenteUrl: String
 ) {
     val uriHandler = LocalUriHandler.current
 
@@ -465,7 +434,7 @@ fun HistorialCard(
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column( // Cambiado a Column para que el enlace quede abajo de la Row principal
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
@@ -528,7 +497,6 @@ fun HistorialCard(
                 }
             }
 
-            // --- Botón de Fuente ---
             if (historialFuenteUrl.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(12.dp))
 
@@ -538,7 +506,7 @@ fun HistorialCard(
                         .clickable { uriHandler.openUri(historialFuenteUrl) }
                         .padding(top = 4.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.End // Alineamos a la derecha
+                    horizontalArrangement = Arrangement.End
                 ) {
                     Icon(
                         imageVector = Icons.Default.Link,
@@ -611,7 +579,6 @@ fun DenunciaCard(denuncia: Denuncia) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Descripción
             Text(
                 text = denuncia.descripcion,
                 style = MaterialTheme.typography.bodyMedium,
@@ -620,13 +587,11 @@ fun DenunciaCard(denuncia: Denuncia) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // --- SECCIÓN CORREGIDA: Fila para ESTADO (Izquierda) y FUENTE (Derecha) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // 1. Estado de la Denuncia (Surface alineado a la izquierda)
                 Surface(
                     shape = RoundedCornerShape(6.dp),
                     color = when (denuncia.estado) {
@@ -665,13 +630,13 @@ fun DenunciaCard(denuncia: Denuncia) {
                         fontWeight = FontWeight.SemiBold
                     )
                 }
-            } // Fin de la Row que separa el Estado y la Fuente
+            }
         }
     }
 }
 @Composable
 fun FinanciamientoCard(financiamiento: Financiamiento) {
-    val uriHandler = LocalUriHandler.current // Obtiene el manejador para abrir URLs
+    val uriHandler = LocalUriHandler.current
 
     Card(
         modifier = Modifier
@@ -685,7 +650,6 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
                 .fillMaxWidth()
                 .padding(20.dp)
         ) {
-            // Monto Declarado
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -706,7 +670,6 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Fuentes Principales Título
             Text(
                 text = "Fuentes Principales",
                 style = MaterialTheme.typography.titleMedium,
@@ -716,7 +679,6 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Lista de Fuentes
             financiamiento.fuentesPrincipales.forEach { fuente ->
                 Row(
                     modifier = Modifier
@@ -745,7 +707,6 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Transparencia
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -773,8 +734,6 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
                     )
                 }
             }
-
-            // --- SECCIÓN CORREGIDA: Botón de Fuente con verificación ---
             if (financiamiento.fuenteUrl.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -784,7 +743,7 @@ fun FinanciamientoCard(financiamiento: Financiamiento) {
                         .clickable { uriHandler.openUri(financiamiento.fuenteUrl) }
                         .padding(vertical = 4.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.End // Alineado a la Derecha
+                    horizontalArrangement = Arrangement.End
                 ) {
                     Icon(
                         imageVector = Icons.Default.Link,

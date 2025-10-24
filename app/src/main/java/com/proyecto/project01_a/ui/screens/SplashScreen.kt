@@ -14,13 +14,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.proyecto.project01_a.ui.components.CustomButton
 import com.proyecto.project01_a.ui.theme.PeruWhite
-import com.proyecto.project01_a.ui.theme.PeruWhite
+// 🚨 CORRECCIÓN: Cambiar la importación de DecidePeruDarkBlue a DarkerBlue
+import com.proyecto.project01_a.ui.theme.DarkerBlue
 import kotlinx.coroutines.delay
 
 @Composable
@@ -51,8 +53,9 @@ fun SplashScreen(
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
-                        PeruWhite,
-                        PeruWhite.copy(alpha = 0.85f)
+                        // 🚨 CORRECCIÓN CLAVE: Usar DarkerBlue
+                        DarkerBlue,
+                        DarkerBlue.copy(alpha = 0.85f)
                     )
                 )
             ),
@@ -65,46 +68,51 @@ fun SplashScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+            // ÍCONO
             Icon(
                 imageVector = Icons.Default.HowToVote,
                 contentDescription = "DecidePerú Logo",
                 modifier = Modifier
                     .size(120.dp)
                     .alpha(alpha),
-                tint = PeruWhite
+                tint = PeruWhite // Icono blanco para contrastar con fondo azul oscuro
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
+            // TÍTULO
             Text(
                 text = "DecidePerú",
                 style = MaterialTheme.typography.displayMedium,
                 fontWeight = FontWeight.Bold,
-                color = PeruWhite,
+                color = PeruWhite, // Texto blanco
                 fontSize = 48.sp
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // SLOGAN
             Text(
                 text = "Conoce, compara y decide con conciencia",
                 style = MaterialTheme.typography.titleMedium,
-                color = PeruWhite.copy(alpha = 0.9f),
+                color = PeruWhite.copy(alpha = 0.9f), // Texto blanco
                 textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
+            // VERSIÓN
             Text(
                 text = "Elecciones 2026",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
-                color = PeruWhite,
+                color = PeruWhite, // Texto blanco
                 textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(64.dp))
 
+            // BOTÓN
             if (showButton) {
                 CustomButton(
                     text = "Comenzar",
