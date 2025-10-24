@@ -1,5 +1,6 @@
 package com.kotlin.proyectoapp.util
 
+import com.kotlin.proyectoapp.R
 import com.kotlin.proyectoapp.data.local.entities.CandidatoEntity
 import com.kotlin.proyectoapp.data.local.entities.DenunciaEntity
 import com.kotlin.proyectoapp.data.local.entities.ProyectoEntity
@@ -15,12 +16,13 @@ object DataSeeder {
                 cargo = "Presidencia",
                 partido = "Partido Democrático",
                 region = "Lima",
-                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Melinda_Gates_2013.jpg/800px-Melinda_Gates_2013.jpg",
+                // ✅ Así se referencia un drawable como un String
+                fotoUrl = "android.resource://com.kotlin.proyectoapp/" + R.drawable.cantidato_1,
                 biografia = "Abogada con 20 años de experiencia en derecho constitucional. Ex ministra de Justicia.",
                 fechaNacimiento = "15/03/1975",
                 profesion = "Abogada",
                 correo = "mgonzalez@partidodemo.pe",
-                telefono = "+51 999 888 767"
+                telefono = "+51 999 888 777"
             ),
             CandidatoEntity(
                 id = 2,

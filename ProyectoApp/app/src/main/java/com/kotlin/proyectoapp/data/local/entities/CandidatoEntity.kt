@@ -9,10 +9,10 @@ data class CandidatoEntity(
     val id: Int = 0,
     val nombre: String,
     val apellidos: String,
-    val cargo: String, // Puede ser "Presidencia" o "Congreso"
+    val cargo: String,
     val partido: String,
     val region: String,
-    val fotoUrl: String,
+    val fotoUrl: String, // <-- Corregido a String
     val biografia: String,
     val fechaNacimiento: String,
     val profesion: String,
