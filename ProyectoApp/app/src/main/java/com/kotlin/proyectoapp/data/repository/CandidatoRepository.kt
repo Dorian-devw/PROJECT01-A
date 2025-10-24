@@ -4,8 +4,8 @@ import com.kotlin.proyectoapp.data.local.dao.CandidatoDao
 import com.kotlin.proyectoapp.data.local.dao.DenunciaDao
 import com.kotlin.proyectoapp.data.local.dao.ProyectoDao
 import com.kotlin.proyectoapp.data.local.entities.CandidatoEntity
-import com.kotlin.proyectoapp.data.local.entities.ProyectoEntity
 import com.kotlin.proyectoapp.data.local.entities.DenunciaEntity
+import com.kotlin.proyectoapp.data.local.entities.ProyectoEntity
 import com.kotlin.proyectoapp.domain.model.Candidato
 import com.kotlin.proyectoapp.domain.model.Denuncia
 import com.kotlin.proyectoapp.domain.model.Proyecto
@@ -21,8 +21,13 @@ class CandidatoRepository(
 ) {
 
     fun getAllCandidatos(): Flow<List<Candidato>> {
-        return candidatoDao.getAllCandidatos().map { entities ->
-            entities.map { it.toDomainModel() }
+        return candidatoDao.getCandidatosWithProyectosAndDenuncias().map { list ->
+            list.map {
+                it.candidato.toDomainModel(
+                    proyectos = it.proyectos.map { p -> p.toDomainModel() },
+                    denuncias = it.denuncias.map { d -> d.toDomainModel() }
+                )
+            }
         }
     }
 

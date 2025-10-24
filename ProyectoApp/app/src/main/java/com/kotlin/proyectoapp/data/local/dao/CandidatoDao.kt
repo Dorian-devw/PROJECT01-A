@@ -2,10 +2,15 @@ package com.kotlin.proyectoapp.data.local.dao
 
 import androidx.room.*
 import com.kotlin.proyectoapp.data.local.entities.CandidatoEntity
+import com.kotlin.proyectoapp.data.local.entities.CandidatoWithProyectosAndDenuncias
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CandidatoDao {
+
+    @Transaction
+    @Query("SELECT * FROM candidatos")
+    fun getCandidatosWithProyectosAndDenuncias(): Flow<List<CandidatoWithProyectosAndDenuncias>>
 
     @Query("SELECT * FROM candidatos ORDER BY apellidos ASC")
     fun getAllCandidatos(): Flow<List<CandidatoEntity>>
