@@ -165,6 +165,292 @@ object DataSeeder { // datos simulados para la app
                 correo = "ccombina@avanzapais.pe",
                 telefono = "+51 637 025 884"
             ),
+            CandidatoEntity(
+                id = 11,
+                nombre = "Álvaro",
+                apellidos = "Paz de la Barra",
+                cargo = "Presidencia",
+                partido = "Fé en el Perú",
+                region = "Lima",
+                fotoUrl = "BUSCARFOTO",
+                biografia = "Abogado, empresario y político peruano. En las elecciones municipales de 2018, fue elegido como alcalde distrital " +
+                        "de La Molina para el periodo 2019-2022. Del mismo modo, fue elegido por los alcaldes del Perú para ejercer la presidencia" +
+                        " de la Asociación de Municipalidades del Perú (AMPE) para el período 2019-2022.Actualmente es Presidente fundador del Partido" +
+                        " Político de Fe en el Perú.",
+                fechaNacimiento = "23/07/1983",
+                profesion = "Abogado",
+                correo = "apazdelabarra@feenelperu.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 13,
+                nombre = "Fiorella",
+                apellidos = "Molinelli Aristondo ",
+                cargo = "Presidencia",
+                partido = "Fuerza Moderna",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/9/94/Fiorella_Molinelli.png",
+                biografia = "Economista peruana. Fue presidenta del Seguro Social de Salud del Perú (EsSalud) desde marzo del 2018 hasta agosto del 2021." +
+                        " Durante el gobierno de Pedro Pablo Kuczynski, fue ministra de Desarrollo e Inclusión Social desde el 27 de julio del 2017 hasta 9 de enero del 2018.",
+                fechaNacimiento = "20/03/1974",
+                profesion = "Economista",
+                correo = "fmolinelli@fmoderna.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 13,
+                nombre = "Roberto",
+                apellidos = "Sánchez Palomino",
+                cargo = "Presidencia",
+                partido = "Juntos por el Perú",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/4/47/S%C3%A1nchez%2C_Juramentaci%C3%B3n_del_nuevo_Gabinete_Ministerial_3_%28cropped%29.png",
+                biografia = "Psicólogo y político peruano. Es congresista de la República para el periodo 2021-2026 y fue ministro de Comercio Exterior y Turismo durante el" +
+                        " gobierno de Pedro Castillo. Ejerce la presidencia del partido Juntos por el Perú desde octubre del 2017.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Psicólogo",
+                correo = "rsanchez@correo.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 14,
+                nombre = "Rafael",
+                apellidos = "Belaúnde Llosa",
+                cargo = "Presidencia",
+                partido = "Libertad Popular",
+                region = "Lima",
+                fotoUrl = "android.resource://com.kotlin.proyectoapp/" + R.drawable.candidato_14,
+                biografia = "Empresario, consultor y político peruano. Fue ministro de Energía y Minas del Perú durante el gobierno de Martín Vizcarra, desde el 15 de julio" +
+                        " hasta el 6 de agosto del año 2020. Además es fundador y presidente del partido político Libertad Popular, desde el 14 de noviembre del 2022.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Economista",
+                correo = "rbelaunde@correo.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 15,
+                nombre = "Jorge",
+                apellidos = " del Castillo Gálvez",
+                cargo = "Presidencia",
+                partido = "Partido Aprista Peruano",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/7/77/Jorge_del_Castillo.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Abogado",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 16,
+                nombre = "Javier",
+                apellidos = "Velásquez Quesquén",
+                cargo = "Presidencia",
+                partido = "Partido Aprista Peruano",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Javier_Vel%C3%A1squez_Quesqu%C3%A9n_%28cropped%29.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Economista",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 17,
+                nombre = "Hernán",
+                apellidos = "Garrido Lecca",
+                cargo = "Presidencia",
+                partido = "Partido Aprista Peruano",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/9/93/Hern%C3%A1n_Garrido_Lecca.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Abogado",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 18,
+                nombre = "Enrique",
+                apellidos = "Valderrama Peña",
+                cargo = "Presidencia",
+                partido = "Partido Aprista Peruano",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/2/21/EnriqueValderramaPAP.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Economista",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 19,
+                nombre = "Augusto",
+                apellidos = "Valqui Malpica",
+                cargo = "Presidencia",
+                partido = "Partido Aprista Peruano",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/c/cf/Augusto_Valqui_Malpica.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Antropólogo",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 20,
+                nombre = "Ricardo ",
+                apellidos = "Belmont",
+                cargo = "Presidencia",
+                partido = "Partido Cívico OBRAS",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/5/57/Ricardo_Belmont_3.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Abogado",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 21,
+                nombre = "Jorge",
+                apellidos = "Nieto Montesinos",
+                cargo = "Presidencia",
+                partido = "Partido del Buen Gobierno",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/2/29/Jorge_Nieto_Montesinos_.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 22,
+                nombre = "Virgilio",
+                apellidos = "Acuña Peralta",
+                cargo = "Presidencia",
+                partido = "Partido Democrático Federal",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/d/de/Virgilio_Acu%C3%B1a.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 23,
+                nombre = "George",
+                apellidos = "Forsyth Sommer",
+                cargo = "Presidencia",
+                partido = "Somos Perú",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/d/d9/George_Forsyth%2C_alcalde_de_La_Victoria.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 24,
+                nombre = "Luis",
+                apellidos = "Durán Rojo",
+                cargo = "Presidencia",
+                partido = "Partido Morado",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a1/Luis_Dur%C3%A1n_Rojo.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 25,
+                nombre = "Mesías",
+                apellidos = "Guevara Amasifuén",
+                cargo = "Presidencia",
+                partido = "Partido Morado",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/4/44/Mes%C3%ADas_Guevara_%282011%29_4x3.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 26,
+                nombre = "Daniel",
+                apellidos = "Mora Zevallos",
+                cargo = "Presidencia",
+                partido = "Partido Morado",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/6/66/Daniel_Mora.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 27,
+                nombre = "Carlos",
+                apellidos = "Álvarez Loayza",
+                cargo = "Presidencia",
+                partido = "País para Todos",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Carlos_%C3%81lvarez_en_Entrometidas%2C_La_Mula.png",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 28,
+                nombre = "Yonhy",
+                apellidos = "Lescano Ancieta",
+                cargo = "Presidencia",
+                partido = "Cooperación Popular",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/9/9c/Yonhy_Lescano.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 29,
+                nombre = "José",
+                apellidos = "Luna Gálvez",
+                cargo = "Presidencia",
+                partido = "Podemos Perú",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/8/8d/Jos%C3%A9_Luna_1.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
+            CandidatoEntity(
+                id = 30,
+                nombre = "Rafael",
+                apellidos = "López-Aliaga Cazorla",
+                cargo = "Presidencia",
+                partido = "Renovación Popular",
+                region = "Lima",
+                fotoUrl = "https://upload.wikimedia.org/wikipedia/commons/7/71/Rafael_L%C3%B3pez_Aliaga_2024.jpg",
+                biografia = "Antropólogo, columnista y político peruano. Fue congresista de la república por Junín durante el periodo 2020-2021.",
+                fechaNacimiento = "03/11/1987",
+                profesion = "Político",
+                correo = "ccombina@avanzapais.pe",
+                telefono = "+51 637 025 884"
+            ),
         )
     }
 
@@ -235,7 +521,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 8,
-                candidatoId = 4,
+                candidatoId = 6,
                 titulo = "Programa Nacional de Vivienda Rural",
                 descripcion = "Proyecto para reducir el déficit habitacional en comunidades rurales con materiales sostenibles.",
                 fecha = "2023-09-18",
@@ -253,7 +539,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 10,
-                candidatoId = 3,
+                candidatoId = 7,
                 titulo = "Plan Nacional de Electrificación Rural",
                 descripcion = "Iniciativa para llevar energía eléctrica a zonas aisladas mediante fuentes renovables.",
                 fecha = "2023-10-05",
@@ -266,12 +552,12 @@ object DataSeeder { // datos simulados para la app
                 titulo = "Ley de Ciberseguridad Nacional",
                 descripcion = "Norma para proteger la infraestructura digital del país frente a amenazas informáticas.",
                 fecha = "2024-04-01",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/011"
             ),
             ProyectoEntity(
                 id = 12,
-                candidatoId = 4,
+                candidatoId = 9,
                 titulo = "Programa de Alfabetización Digital",
                 descripcion = "Propuesta para capacitar a ciudadanos en el uso de herramientas digitales básicas.",
                 fecha = "2024-02-10",
@@ -280,7 +566,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 13,
-                candidatoId = 2,
+                candidatoId = 8,
                 titulo = "Reforma de Transporte Público Nacional",
                 descripcion = "Proyecto para unificar la regulación del transporte urbano y mejorar la movilidad sostenible.",
                 fecha = "2024-01-28",
@@ -289,7 +575,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 14,
-                candidatoId = 6,
+                candidatoId = 12,
                 titulo = "Ley de Protección del Patrimonio Cultural",
                 descripcion = "Medida para sancionar el tráfico ilegal y deterioro del patrimonio arqueológico nacional.",
                 fecha = "2023-12-14",
@@ -298,7 +584,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 15,
-                candidatoId = 8,
+                candidatoId = 28,
                 titulo = "Ley de Fomento a la Agricultura Sostenible",
                 descripcion = "Iniciativa que promueve el uso responsable del agua y fertilizantes ecológicos.",
                 fecha = "2023-11-25",
@@ -307,7 +593,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 16,
-                candidatoId = 3,
+                candidatoId = 23,
                 titulo = "Ley de Protección Animal",
                 descripcion = "Proyecto para endurecer sanciones contra el maltrato animal y promover adopciones responsables.",
                 fecha = "2024-03-10",
@@ -316,16 +602,16 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 17,
-                candidatoId = 2,
+                candidatoId = 20,
                 titulo = "Ley de Fomento del Turismo Interno",
                 descripcion = "Medida para incentivar el turismo nacional a través de feriados largos y descuentos tributarios.",
                 fecha = "2024-04-02",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/017"
             ),
             ProyectoEntity(
                 id = 18,
-                candidatoId = 1,
+                candidatoId = 19,
                 titulo = "Reforma del Sistema de Pensiones",
                 descripcion = "Propuesta para unificar los sistemas público y privado de pensiones garantizando la sostenibilidad.",
                 fecha = "2023-12-30",
@@ -334,7 +620,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 19,
-                candidatoId = 6,
+                candidatoId = 18,
                 titulo = "Ley de Protección de Datos Personales",
                 descripcion = "Actualización normativa para proteger la información digital de los ciudadanos.",
                 fecha = "2024-03-01",
@@ -343,7 +629,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 20,
-                candidatoId = 5,
+                candidatoId = 17,
                 titulo = "Plan Nacional contra la Desnutrición Infantil",
                 descripcion = "Iniciativa para reducir los índices de desnutrición en menores de 5 años en zonas rurales.",
                 fecha = "2023-09-10",
@@ -352,7 +638,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 21,
-                candidatoId = 2,
+                candidatoId = 22,
                 titulo = "Ley de Promoción del Empleo Juvenil",
                 descripcion = "Proyecto que incentiva la contratación de jóvenes recién egresados con beneficios tributarios.",
                 fecha = "2024-02-22",
@@ -361,16 +647,16 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 22,
-                candidatoId = 3,
+                candidatoId = 27,
                 titulo = "Ley de Acceso al Internet Gratuito",
                 descripcion = "Iniciativa para garantizar conectividad gratuita en instituciones educativas y plazas públicas.",
                 fecha = "2024-01-11",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/022"
             ),
             ProyectoEntity(
                 id = 23,
-                candidatoId = 4,
+                candidatoId = 29,
                 titulo = "Ley de Apoyo a Emprendedores Locales",
                 descripcion = "Propuesta que establece créditos y capacitaciones para microempresas peruanas.",
                 fecha = "2023-11-05",
@@ -379,7 +665,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 24,
-                candidatoId = 6,
+                candidatoId = 26,
                 titulo = "Ley de Reforma del Sistema Tributario",
                 descripcion = "Iniciativa que busca simplificar los tributos y ampliar la base de contribuyentes.",
                 fecha = "2023-10-21",
@@ -388,16 +674,16 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 25,
-                candidatoId = 1,
+                candidatoId = 11,
                 titulo = "Ley de Seguridad Ciudadana Integral",
                 descripcion = "Norma que propone la coordinación entre municipalidades y PNP para combatir la delincuencia.",
                 fecha = "2023-12-15",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/025"
             ),
             ProyectoEntity(
                 id = 26,
-                candidatoId = 2,
+                candidatoId = 12,
                 titulo = "Ley de Inclusión Financiera",
                 descripcion = "Propuesta para expandir los servicios bancarios digitales en comunidades rurales.",
                 fecha = "2024-03-07",
@@ -406,7 +692,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 27,
-                candidatoId = 4,
+                candidatoId = 14,
                 titulo = "Ley de Transporte Sostenible",
                 descripcion = "Norma para promover el uso de vehículos eléctricos y transporte no motorizado.",
                 fecha = "2023-12-12",
@@ -415,7 +701,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 28,
-                candidatoId = 3,
+                candidatoId = 13,
                 titulo = "Ley de Fomento a la Ciencia y Tecnología",
                 descripcion = "Proyecto para fortalecer la investigación científica mediante becas e infraestructura.",
                 fecha = "2024-01-08",
@@ -424,7 +710,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 29,
-                candidatoId = 5,
+                candidatoId = 20,
                 titulo = "Ley de Energías Renovables",
                 descripcion = "Iniciativa que impulsa la inversión en energía solar, eólica y geotérmica.",
                 fecha = "2023-10-18",
@@ -433,7 +719,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 30,
-                candidatoId = 6,
+                candidatoId = 16,
                 titulo = "Ley de Reforma Laboral",
                 descripcion = "Propuesta para modernizar los derechos laborales y flexibilizar la contratación.",
                 fecha = "2024-02-03",
@@ -442,16 +728,16 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 31,
-                candidatoId = 4,
+                candidatoId = 23,
                 titulo = "Ley de Seguridad Alimentaria",
                 descripcion = "Proyecto para garantizar el acceso a alimentos saludables y sostenibles.",
                 fecha = "2024-01-25",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/031"
             ),
             ProyectoEntity(
                 id = 32,
-                candidatoId = 2,
+                candidatoId = 22,
                 titulo = "Ley de Apoyo a la Mujer Emprendedora",
                 descripcion = "Iniciativa que promueve el acceso a financiamiento y capacitación para mujeres emprendedoras.",
                 fecha = "2024-03-17",
@@ -460,7 +746,7 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 33,
-                candidatoId = 1,
+                candidatoId = 16,
                 titulo = "Ley de Protección del Consumidor Digital",
                 descripcion = "Norma para regular las transacciones electrónicas y proteger a los usuarios de fraudes.",
                 fecha = "2024-04-05",
@@ -469,16 +755,16 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 34,
-                candidatoId = 3,
+                candidatoId = 30,
                 titulo = "Ley de Desarrollo Rural Sostenible",
                 descripcion = "Proyecto que busca fortalecer la producción agrícola y reducir la migración rural-urbana.",
                 fecha = "2023-09-25",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/034"
             ),
             ProyectoEntity(
                 id = 35,
-                candidatoId = 5,
+                candidatoId = 15,
                 titulo = "Ley de Inclusión para Personas con Discapacidad",
                 descripcion = "Propuesta para mejorar el acceso laboral y educativo de personas con discapacidad.",
                 fecha = "2024-02-28",
@@ -487,11 +773,11 @@ object DataSeeder { // datos simulados para la app
             ),
             ProyectoEntity(
                 id = 36,
-                candidatoId = 6,
+                candidatoId = 26,
                 titulo = "Ley de Modernización del Estado",
                 descripcion = "Proyecto que promueve la digitalización de los servicios públicos y la transparencia administrativa.",
                 fecha = "2024-03-12",
-                estado = "En revisión",
+                estado = "En trámite",
                 urlFuente = "https://www.congreso.gob.pe/proyectos/036"
             )
         )
@@ -520,6 +806,114 @@ object DataSeeder { // datos simulados para la app
             DenunciaEntity(
                 id = 3,
                 candidatoId = 2,
+                tipo = "Civil",
+                descripcion = "Proceso civil por incumplimiento de contrato en proyecto municipal.",
+                fecha = "2021-03-10",
+                estado = "Sentenciado",
+                urlFuente = "https://www.pj.gob.pe/casos/003"
+            ),
+            DenunciaEntity(
+                id = 4,
+                candidatoId = 9,
+                tipo = "Penal",
+                descripcion = "Investigación por presunto delito de corrupción en contratación pública.",
+                fecha = "2022-06-15",
+                estado = "En proceso",
+                urlFuente = "https://www.pj.gob.pe/casos/001"
+            ),
+            DenunciaEntity(
+                id = 5,
+                candidatoId = 11,
+                tipo = "Electoral",
+                descripcion = "Denuncia por irregularidades en financiamiento de campaña electoral.",
+                fecha = "2023-08-20",
+                estado = "Archivado",
+                urlFuente = "https://www.jne.gob.pe/denuncias/002"
+            ),
+            DenunciaEntity(
+                id = 6,
+                candidatoId = 29,
+                tipo = "Civil",
+                descripcion = "Proceso civil por incumplimiento de contrato en proyecto municipal.",
+                fecha = "2021-03-10",
+                estado = "Sentenciado",
+                urlFuente = "https://www.pj.gob.pe/casos/003"
+            ),
+            DenunciaEntity(
+                id = 7,
+                candidatoId = 28,
+                tipo = "Penal",
+                descripcion = "Investigación por presunto delito de corrupción en contratación pública.",
+                fecha = "2022-06-15",
+                estado = "En proceso",
+                urlFuente = "https://www.pj.gob.pe/casos/001"
+            ),
+            DenunciaEntity(
+                id = 8,
+                candidatoId = 30,
+                tipo = "Electoral",
+                descripcion = "Denuncia por irregularidades en financiamiento de campaña electoral.",
+                fecha = "2023-08-20",
+                estado = "Archivado",
+                urlFuente = "https://www.jne.gob.pe/denuncias/002"
+            ),
+            DenunciaEntity(
+                id = 9,
+                candidatoId = 18,
+                tipo = "Civil",
+                descripcion = "Proceso civil por incumplimiento de contrato en proyecto municipal.",
+                fecha = "2021-03-10",
+                estado = "Sentenciado",
+                urlFuente = "https://www.pj.gob.pe/casos/003"
+            ),
+            DenunciaEntity(
+                id = 10,
+                candidatoId = 20,
+                tipo = "Penal",
+                descripcion = "Investigación por presunto delito de corrupción en contratación pública.",
+                fecha = "2022-06-15",
+                estado = "En proceso",
+                urlFuente = "https://www.pj.gob.pe/casos/001"
+            ),
+            DenunciaEntity(
+                id = 11,
+                candidatoId = 19,
+                tipo = "Electoral",
+                descripcion = "Denuncia por irregularidades en financiamiento de campaña electoral.",
+                fecha = "2023-08-20",
+                estado = "Archivado",
+                urlFuente = "https://www.jne.gob.pe/denuncias/002"
+            ),
+            DenunciaEntity(
+                id = 12,
+                candidatoId = 23,
+                tipo = "Civil",
+                descripcion = "Proceso civil por incumplimiento de contrato en proyecto municipal.",
+                fecha = "2021-03-10",
+                estado = "Sentenciado",
+                urlFuente = "https://www.pj.gob.pe/casos/003"
+            ),
+            DenunciaEntity(
+                id = 13,
+                candidatoId = 22,
+                tipo = "Penal",
+                descripcion = "Investigación por presunto delito de corrupción en contratación pública.",
+                fecha = "2022-06-15",
+                estado = "En proceso",
+                urlFuente = "https://www.pj.gob.pe/casos/001"
+            ),
+            DenunciaEntity(
+                id = 14,
+                candidatoId = 14,
+                tipo = "Electoral",
+                descripcion = "Denuncia por irregularidades en financiamiento de campaña electoral.",
+                fecha = "2023-08-20",
+                estado = "Archivado",
+                urlFuente = "https://www.jne.gob.pe/denuncias/002"
+            ),
+            DenunciaEntity(
+                id = 15,
+                candidatoId = 12,
                 tipo = "Civil",
                 descripcion = "Proceso civil por incumplimiento de contrato en proyecto municipal.",
                 fecha = "2021-03-10",
