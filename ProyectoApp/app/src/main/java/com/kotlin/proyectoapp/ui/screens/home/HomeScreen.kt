@@ -29,7 +29,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("CandidatoInfo") },
+                title = { Text("Probando Titulo") },
                 actions = {
                     IconButton(onClick = onCompararClick) {
                         Icon(

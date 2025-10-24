@@ -11,11 +11,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage  // ✅ Cambiado de AsyncImage
 import com.kotlin.proyectoapp.R
 import com.kotlin.proyectoapp.ui.components.DenunciaItem
 import com.kotlin.proyectoapp.ui.components.ProjectItem
@@ -102,20 +101,32 @@ fun DetalleScreen(
                                     .clip(MaterialTheme.shapes.medium),
                                 color = MaterialTheme.colorScheme.surfaceVariant
                             ) {
-                                AsyncImage(
+                                SubcomposeAsyncImage(  // ✅ Cambiado de AsyncImage
                                     model = candidato.fotoUrl,
                                     contentDescription = "Foto de ${candidato.nombreCompleto}",
                                     modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop,
-                                    error = @androidx.compose.runtime.Composable {
+                                    error = {  // ✅ Sin @Composable ni cast
                                         Icon(
                                             imageVector = Icons.Default.Person,
                                             contentDescription = null,
                                             modifier = Modifier
                                                 .fillMaxSize()
-                                                .padding(24.dp)
+                                                .padding(24.dp),
+                                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                                         )
-                                    } as Painter?
+                                    },
+                                    loading = {  // ✅ Añadido indicador de carga
+                                        Box(
+                                            modifier = Modifier.fillMaxSize(),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            CircularProgressIndicator(
+                                                modifier = Modifier.size(32.dp),
+                                                strokeWidth = 3.dp
+                                            )
+                                        }
+                                    }
                                 )
                             }
 
@@ -133,7 +144,6 @@ fun DetalleScreen(
                             )
                         }
                     }
-
                     // Información personal
                     item {
                         Card(

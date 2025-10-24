@@ -9,11 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import com.kotlin.proyectoapp.domain.model.Candidato
 
 @Composable
@@ -41,20 +40,32 @@ fun CandidatoCard(
                     .clip(MaterialTheme.shapes.medium),
                 color = MaterialTheme.colorScheme.surfaceVariant
             ) {
-                AsyncImage(
+                SubcomposeAsyncImage(
                     model = candidato.fotoUrl,
                     contentDescription = "Foto de ${candidato.nombreCompleto}",
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
-                    error = @androidx.compose.runtime.Composable {
+                    error = {
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = null,
                             modifier = Modifier
                                 .fillMaxSize()
-                                .padding(16.dp)
+                                .padding(16.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
-                    } as Painter?
+                    },
+                    loading = {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                strokeWidth = 2.dp
+                            )
+                        }
+                    }
                 )
             }
 
