@@ -1,4 +1,4 @@
-# 🗳️ CandidatoInfo - Transparencia Electoral Ciudadana
+# 🗳️ EligePerú - Transparencia Electoral Ciudadana
 
 ## 📋 Descripción del Proyecto
 
@@ -31,7 +31,7 @@ DecidePeru surge como una respuesta a esta necesidad, ofreciendo una plataforma 
 ## 🎨 Prototipo de Diseño
 
 ### Enlace a Figma
-🔗 [Ver prototipo en Figma](https://www.figma.com/[insertar-enlace-aqui]](https://www.figma.com/design/d2wsoxZVmGn2j6joDUovJ3/Proyecto-Kotlin?node-id=15-2&t=Ea62lDUxU7WMNM2L-1))
+🔗 [Ver prototipo en Figma](https://www.figma.com/design/d2wsoxZVmGn2j6joDUovJ3/Proyecto-Kotlin?node-id=15-2&t=2kbL9aXZSsYle7aS-1)
 
 ### Pantallas Principales
 
@@ -236,29 +236,7 @@ fix/[nombre]: Correcciones
 
 ---
 
-## 📌 Estado Actual del Proyecto
 
-### ✅ Completado (Día 1)
-- [x] Definición del problema y valor social
-- [x] Investigación de fuentes de datos
-- [x] Definición de roles del equipo
-- [x] Lluvia de ideas sobre funcionalidades
-- [x] Prototipo en Figma (3 pantallas principales)
-- [x] Flujo de navegación definido
-- [x] Arquitectura de información diseñada
-- [x] Repositorio GitHub creado
-- [x] README inicial documentado
-- [x] Paleta de colores seleccionada
-
-### 📋 Próximos Pasos (Día 2)
-- [ ] Crear proyecto en Android Studio
-- [ ] Configurar dependencias (Room, Compose, Navigation)
-- [ ] Definir estructura de paquetes
-- [ ] Crear entidades de Room Database
-- [ ] Configurar sistema de navegación básico
-- [ ] Implementar pantallas vacías con navegación
-
----
 
 **Última actualización**: 17/10/2025  
 **Versión**: 0.1.0-alpha (Pre-release)
