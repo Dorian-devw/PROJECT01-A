@@ -67,7 +67,7 @@ class CandidatoRepository(
         }
     }
 
-    suspend fun insertCandidato(candidato: Candidato): Long {
+    /*suspend fun insertCandidato(candidato: Candidato): Long {
         return candidatoDao.insert(candidato.toEntity())
     }
 
@@ -77,7 +77,7 @@ class CandidatoRepository(
 
     suspend fun deleteCandidato(candidato: Candidato) {
         candidatoDao.delete(candidato.toEntity())
-    }
+    }*/
 
     // Mappers
     private fun CandidatoEntity.toDomainModel(

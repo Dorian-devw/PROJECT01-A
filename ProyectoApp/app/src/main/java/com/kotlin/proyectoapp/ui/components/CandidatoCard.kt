@@ -35,7 +35,7 @@ fun CandidatoCard(
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Foto del candidato
+            // esto es la foto del candidato con glide
             Surface(
                 modifier = Modifier
                     .size(80.dp)
@@ -51,7 +51,7 @@ fun CandidatoCard(
 
             Spacer(modifier = Modifier.width(16.dp))
 
-            // Información del candidato
+            // info del candidato
             Column(
                 modifier = Modifier.weight(1f)
             ) {

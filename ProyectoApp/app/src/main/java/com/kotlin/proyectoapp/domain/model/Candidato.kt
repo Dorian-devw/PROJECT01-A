@@ -8,7 +8,7 @@ data class Candidato(
     val cargo: String,
     val partido: String,
     val region: String,
-    val fotoUrl: String, // <-- Corregido a String
+    val fotoUrl: String,
     val biografia: String,
     val fechaNacimiento: String,
     val profesion: String,

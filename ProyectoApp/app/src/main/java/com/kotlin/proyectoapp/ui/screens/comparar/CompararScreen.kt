@@ -68,7 +68,7 @@ fun CompararScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            if (uiState.candidatosSeleccionados.size < 3) {
+            if (uiState.candidatosSeleccionados.size < 2) {
                 // Vista de selección
                 Column {
                     Card(
@@ -80,7 +80,7 @@ fun CompararScreen(
                         )
                     ) {
                         Text(
-                            text = "${stringResource(R.string.select_candidates_to_compare)} (${uiState.candidatosSeleccionados.size}/3)",
+                            text = "${stringResource(R.string.select_candidates_to_compare)} (${uiState.candidatosSeleccionados.size}/2)",
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.padding(16.dp)
                         )
@@ -97,7 +97,6 @@ fun CompararScreen(
                         }
                         else -> {
                             LazyColumn(
-                                modifier = Modifier.fillMaxSize(),
                                 contentPadding = PaddingValues(16.dp),
                                 verticalArrangement = Arrangement.spacedBy(12.dp)
                             ) {
